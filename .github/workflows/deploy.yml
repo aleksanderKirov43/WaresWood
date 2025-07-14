@@ -1,39 +1,15 @@
-name: Deploy via FTP
+backend-deploy:
+  name: ⚙️ Deploy Backend (только нужные файлы)
+  runs-on: ubuntu-latest
+  steps:
+    - name: 📥 Checkout repo
+      uses: actions/checkout@v3
 
-on:
-  push:
-    branches:
-      - main
-
-jobs:
-  frontend-deploy:
-    name: 🚀 Deploy Frontend
-    runs-on: ubuntu-latest
-    steps:
-      - name: 📥 Checkout repo
-        uses: actions/checkout@v3
-
-      - name: 📤 Upload front/ to FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
-        with:
-          server: ${{ secrets.FTP_HOST }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: front/
-          server-dir: public_html/front/
-
-  backend-deploy:
-    name: ⚙️ Deploy Backend (send.php, .htaccess)
-    runs-on: ubuntu-latest
-    steps:
-      - name: 📥 Checkout repo
-        uses: actions/checkout@v3
-
-      - name: 📤 Upload backend/ to FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
-        with:
-          server: ${{ secrets.FTP_HOST }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: server/
-          server-dir: public_html/
+    - name: 📤 Upload deploy/ to FTP
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      with:
+        server: ${{ secrets.FTP_HOST }}
+        username: ${{ secrets.FTP_USERNAME }}
+        password: ${{ secrets.FTP_PASSWORD }}
+        local-dir: deploy/
+        server-dir: public_html/
