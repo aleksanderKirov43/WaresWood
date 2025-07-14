@@ -21,17 +21,16 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: front/
           server-dir: public_html/front/
-          exclude: |
-            .ftp-deploy-sync-state.json
+          dangerously-ignore-sync: true
 
   backend-deploy:
-    name: ⚙️ Deploy Backend
+    name: ⚙️ Deploy Backend (send.php, .htaccess)
     runs-on: ubuntu-latest
     steps:
       - name: 📥 Checkout repo
         uses: actions/checkout@v3
 
-      - name: 📤 Upload deploy/ content to FTP
+      - name: 📤 Upload deploy/ to FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
           server: ${{ secrets.FTP_HOST }}
@@ -39,5 +38,4 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: deploy/
           server-dir: public_html/
-          exclude: |
-            .ftp-deploy-sync-state.json
+          dangerously-ignore-sync: true
