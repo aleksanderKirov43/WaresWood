@@ -1,0 +1,3 @@
+DirectoryIndex /front/index.html
+RewriteEngine On
+RewriteCond %{REQUEST_URI} !^/send$
