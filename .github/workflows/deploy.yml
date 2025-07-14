@@ -1,4 +1,4 @@
-name: Deploy via FTP
+public_htmlname: Deploy via FTP
 
 on:
   push:
@@ -31,7 +31,7 @@ jobs:
       - name: 📥 Checkout repo
         uses: actions/checkout@v3
 
-      - name: 📤 Upload deploy/ to FTP
+      - name: 📤 Upload deploy/ content to FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
           server: ${{ secrets.FTP_HOST }}
