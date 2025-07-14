@@ -21,9 +21,11 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: front/
           server-dir: public_html/front/
+          exclude: |
+            **/.ftp-deploy-sync-state.json
 
   backend-deploy:
-    name: ⚙️ Deploy Backend (php, htaccess)
+    name: ⚙️ Deploy Backend
     runs-on: ubuntu-latest
     steps:
       - name: 📥 Checkout repo
@@ -37,3 +39,5 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: deploy/
           server-dir: public_html/
+          exclude: |
+            **/.ftp-deploy-sync-state.json
