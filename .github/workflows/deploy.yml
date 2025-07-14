@@ -20,7 +20,7 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: front/
-          server-dir: public_html/front/
+          server-dir: domains/a1147424.xsph.ru/public_html/front/
           dangerously-ignore-sync: true
 
   backend-deploy:
@@ -37,5 +37,5 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: deploy/
-          server-dir: public_html/
+          server-dir: domains/a1147424.xsph.ru/public_html/
           dangerously-ignore-sync: true
