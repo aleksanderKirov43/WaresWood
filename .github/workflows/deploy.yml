@@ -22,7 +22,7 @@ jobs:
           local-dir: front/
           server-dir: public_html/front/
           exclude: |
-            **/.ftp-deploy-sync-state.json
+            .ftp-deploy-sync-state.json
 
   backend-deploy:
     name: ⚙️ Deploy Backend
@@ -40,4 +40,4 @@ jobs:
           local-dir: deploy/
           server-dir: public_html/
           exclude: |
-            **/.ftp-deploy-sync-state.json
+            .ftp-deploy-sync-state.json
