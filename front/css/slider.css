@@ -1,0 +1,200 @@
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background: #f0f0f0;
+}
+
+.section-slider {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.slider-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.slider-track {
+  display: flex;
+  transition: transform 0.5s ease;
+  width: 100%;
+  height: 100%;
+}
+
+.slide {
+  min-width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  padding: 20px 0;
+}
+
+.slide-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+  height: 100%;
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 20px;
+  z-index: 2;
+  position: relative;
+}
+
+.slide-content > div:first-child {
+  flex: 1;
+  z-index: 2;
+}
+
+.slide-content img {
+  max-height: 100vh;
+  width: auto;
+  object-fit: cover;
+  flex: 1;
+  z-index: 1;
+}
+
+/* Стрелки */
+.slider-controls {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+  padding: 0 20px;
+  z-index: 10;
+}
+
+.slider-btn {
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  border: none;
+  font-size: 30px;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.slider-btn:hover {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+/* Точки */
+.slider-dots {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 10;
+}
+
+.slider-dot {
+  width: 12px;
+  height: 12px;
+  background: #bbb;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.slider-dot.active {
+  background: #333;
+}
+
+/* Заголовки и кнопки */
+.utp-title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.slide-buttons {
+  margin-top: 1rem;
+  display: flex;
+  gap: 10px;
+}
+
+.btn {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-secondary {
+  background-color: #aaa;
+  color: #fff;
+  font-weight: normal;
+}
+
+.slide img {
+  width: 100%;
+  display: block;
+}
+
+.slider-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.prev, .next {
+  background: #3333335c;
+  color: #fff;
+  border: none;
+  font-size: 20px;
+  padding: 10px 18px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.slider-dots {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+.slider-dot {
+  width: 10px;
+  height: 10px;
+  background: #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.slider-dot.active {
+  background: #333;
+}
+
+@media (max-width: 900px) {
+    .prev, .next {
+        display: none;
+    }
+    .btn-secondary {
+        max-width: max-content;
+    }
+}
+
+@media (max-width: 400px) {
+    .slide-buttons{
+        flex-direction: column;
+        gap: 10px;
+        align-content: center;
+    }
+}

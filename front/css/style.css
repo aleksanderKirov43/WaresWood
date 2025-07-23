@@ -140,7 +140,7 @@ a {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 5px;
   padding-top: 1em;
 }
 
@@ -235,7 +235,6 @@ a {
 .btn-call {
   background-color: #FFA500;
   color: white;
-  font-weight: bold;
   border: none;
   padding: 20px 50px;
   border-radius: 6px;
@@ -244,6 +243,7 @@ a {
   white-space: nowrap;
   flex: 0 0 auto; /* не сжимается */
   min-width: 180px;
+  font-size: 16px;
 }
 
 .btn-call:hover {
@@ -347,8 +347,66 @@ a {
   transition: background-color 0.3s ease;
 }
 
+.btn {
+  background-color: #ff8c00;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  font-size: 1em;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #e57700;
+}
+
 .btn-order:hover {
   background-color: black;
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: #ff8c00;
+  border: 2px solid #ff8c00;
+}
+
+.btn-secondary:hover {
+  background-color: #ff8c00;
+  color: white;
+}
+
+.btn-secondary:hover {
+  background-color: #ff8c00;
+  color: white;
+}
+
+.slider-controls {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+  padding: 0 20px;
+  pointer-events: none;
+}
+
+.slider-btn {
+  background-color: rgba(255, 140, 0, 0.8);
+  border: none;
+  color: white;
+  font-size: 2em;
+  padding: 5px 15px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s;
+  pointer-events: auto;
+}
+
+.slider-btn:hover {
+  background-color: rgba(255, 140, 0, 1);
 }
 
 .contact-form-section {
@@ -539,6 +597,7 @@ a {
   background-color: #ffa50075;
   width: 100%;
   overflow-x: hidden;
+  position: relative;
 }
 
 .background-fon-gray{
@@ -585,10 +644,39 @@ a {
   cursor: pointer;
 }
 
+.slide-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 40px 20px;
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.slide-content > div {
+  flex: 1;
+}
+
+.slide-content img {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.slide-buttons {
+  margin-top: 20px;
+  display: flex;
+  gap: 15px;
+}
+
 /* ===== АДАПТИВ ===== */
 @media (max-width: 1300px) {
   body{
-    padding: 0em 1em;
+    padding: 0 10px;
   }
   .products{
     padding: 1em 0.3em;
@@ -686,6 +774,25 @@ a {
     .footer-inner {
     display: none;
   }
+
+    .slide-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .utp-title {
+    font-size: 1.8em;
+  }
+
+  .slide-buttons {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .slide-content img {
+    max-width: 100%;
+    margin-top: 20px;
+  }
 }
 
 @media (max-width: 600px) {
@@ -700,8 +807,12 @@ a {
 
 @media (max-width: 400px) {
 
+.btn-call{
+  margin-top: 10px;
+}
+
 .divider{
- margin: 0 auto;
+
 }
 
 .advantages-list{

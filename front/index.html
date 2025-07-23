@@ -7,7 +7,11 @@
   <title>Wares & Wood</title>
 
   <link rel="stylesheet" href="/front/css/style.css"/>
+  <link rel="stylesheet" href="/front/css/slider.css"/>
+
+
 </head>
+<script src="/front/js/slider.js"></script>
 <body>
 
 <header>
@@ -50,18 +54,72 @@
 
 
 <main class="utp-block">
-  <section class="background-fon-orange">
-    <div class="utp container">
-        <div>
+<!-- Слайдер -->
+<section class="section-slider">
+  <div class="slider-container">
+    <div class="slider-track">
+      <!-- Слайд 1 -->
+      <div class="slide">
+        <div class="slide-content container">
+          <div>
             <h1 class="utp-title">Стеллажи из массива дерева от производителя в Москве</h1>
             <p>Производство и продажа в Москве. Доставка по всей России от 1 штуки.</p>
+            <div class="slide-buttons">
+              <button class="btn"><a href="#catalog">Подробнее</a></button>
+              <button class="btn btn-secondary btn-call">Заказать звонок</button>
+            </div>
+          </div>
+          <div>
+            <img src="/front/images/f.jpg" alt="Стеллажи из массива дерева">
+          </div>
         </div>
-        <div>
-            <img src="/front/images/f.jpg" alt="Стеллажи из массива дерева от производителя в Москве">
+      </div>
+      <!-- Слайд 2 -->
+      <div class="slide">
+        <div class="slide-content container">
+          <div>
+            <h1 class="utp-title">Надежные деревянные конструкции для дома и офиса</h1>
+            <p>Эстетика, надёжность и долговечность — всё в одном решении.</p>
+            <div class="slide-buttons">
+              <button class="btn"><a href="#catalog">Подробнее</a></button>
+              <button class="btn btn-secondary btn-call">Заказать звонок</button>
+            </div>
+          </div>
+          <div>
+            <img src="/front/images/product-s1.jpg" alt="Деревянные конструкции">
+          </div>
         </div>
-       </div> 
-    </section>
-    <hr class="divider">
+      </div>
+      <!-- Слайд 3 -->
+      <div class="slide">
+        <div class="slide-content container">
+          <div>
+            <h1 class="utp-title">Индивидуальное производство по вашим размерам</h1>
+            <p>Работаем по эскизам, подбираем материалы и воплощаем в жизнь.</p>
+            <br>
+            <br>
+            <div class="slide-buttons">
+              <button class="btn"><a href="#catalog">Подробнее</a></button>
+              <button class="btn btn-secondary btn-call">Заказать звонок</button>
+            </div>
+          </div>
+          <div>
+            <img src="/front/images/product-s2.jpg" alt="Индивидуальное производство">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slider-controls">
+    <button class="slider-btn prev">‹</button>
+    <button class="slider-btn next">›</button>
+  </div>
+  <div class="slider-dots">
+  <span class="slider-dot active"></span>
+  <span class="slider-dot"></span>
+  <span class="slider-dot"></span>
+</div>
+</section>
 
 <section class="advantages container">
   <div class="advantages-list">
@@ -548,6 +606,6 @@
 
   <script src="/front/js/main.js"></script>
   <script src="/front/js/form-handler.js"></script>
-  <!--<script src="/front/js/telegram.js"></script>-->
+  <!-- <script src="/front/js/telegram.js"></script> -->
 </body>
 </html>
