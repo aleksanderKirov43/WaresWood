@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
     try {
       const res = await fetch('/send.php', {
         method: 'POST',
-        body  : fd                       // никаких headers!
+        body  : fd                    
       });
 
       if (!res.ok) throw new Error(await res.text());
