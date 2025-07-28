@@ -51,5 +51,6 @@ $product = $products[$_GET['id']];
       }
     }
   </script>
+  <script src="/front/js/notifications.js"></script>
 </body>
 </html>

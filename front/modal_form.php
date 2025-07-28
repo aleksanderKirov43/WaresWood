@@ -12,22 +12,6 @@
   </div>
 </div>
 
-<!-- Контейнер для уведомлений -->
-<div id="notification" style="
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: #4CAF50;
-  color: white;
-  padding: 15px 25px;
-  border-radius: 5px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.4s ease;
-  z-index: 1100;
-"></div>
-
 <script>
 window.addEventListener('DOMContentLoaded', () => {
   function openModal(productTitle) {
@@ -73,18 +57,5 @@ window.addEventListener('DOMContentLoaded', () => {
       showNotification('Ошибка сети. Попробуйте позже.', true);
     });
   });
-
-  function showNotification(message, isError = false) {
-    const notification = document.getElementById('notification');
-    notification.textContent = message;
-    notification.style.background = isError ? '#f44336' : '#4CAF50';
-    notification.style.opacity = '1';
-    notification.style.pointerEvents = 'auto';
-
-    setTimeout(() => {
-      notification.style.opacity = '0';
-      notification.style.pointerEvents = 'none';
-    }, 3000);
-  }
 });
 </script>

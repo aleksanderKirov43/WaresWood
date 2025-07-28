@@ -319,6 +319,7 @@ include 'products.php';
 <!-- Всплывающая форма -->
 <?php include 'modal_form.php'; ?>
 
+  <script src="/front/js/notifications.js"></script>
   <script src="/front/js/main.js"></script>
   <script src="/front/js/form-handler.js"></script>
 
