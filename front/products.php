@@ -13,7 +13,7 @@ $products = [
         'description' => 'Размеры:
         Высота: 1820 мм. Ширина: 760 мм. Глубина: 320 мм.',
         'images' => ['/front/images/product-s2.jpg', '/front/images/product-s2.jpg'],
-        'price' => '3500 руб.'
+        'price' => '1820 руб.'
     ],
     'shelf2' => [
         'title' => 'Стеллаж 182х113х32 см',
