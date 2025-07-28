@@ -154,8 +154,8 @@ include 'products.php';
 <section class="products container">
   <h1>Каталог</h1>
   <div>
+    <article class="product-card">
     <?php foreach ($products as $id => $product): ?>
-      <article class="product-card">
       <div class="products-list">
         <h2><?= htmlspecialchars($product['title']) ?></h2>
         <p><?= nl2br(htmlspecialchars($product['description'])) ?></p>
