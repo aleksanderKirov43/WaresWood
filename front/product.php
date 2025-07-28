@@ -37,7 +37,7 @@ $product = $products[$_GET['id']];
   <script>
     function openModal(productTitle) {
       document.getElementById('productInput').value = productTitle;
-      document.getElementById('modalForm').style.display = 'block';
+      document.getElementById('modalForm').style.display = 'flex';
     }
 
     document.getElementById('modalClose').onclick = function() {
