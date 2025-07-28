@@ -153,8 +153,8 @@ include 'products.php';
 
 <section class="products container">
   <h1>Каталог</h1>
-  <div>
-    <article class="product-card">
+  <div class="product-card">
+    
     <?php foreach ($products as $id => $product): ?>
       <div class="products-list">
         <h2><?= htmlspecialchars($product['title']) ?></h2>
@@ -165,7 +165,7 @@ include 'products.php';
       </div>
     <?php endforeach; ?>
   </div>
-  </article>
+
 </section>  
 
 <!-- <section class="products container">
