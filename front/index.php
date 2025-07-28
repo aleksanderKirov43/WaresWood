@@ -160,6 +160,7 @@ include 'products.php';
         <p><?= nl2br(htmlspecialchars($product['description'])) ?></p>
         <p><strong>Цена: <?= htmlspecialchars($product['price']) ?></strong></p>
         <a href="/front/product.php?id=<?= urlencode($id) ?>">Подробнее</a>
+        <button class="btn-order">Заказать</button>
       </div>
     <?php endforeach; ?>
   </div>

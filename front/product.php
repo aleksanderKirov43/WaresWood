@@ -30,7 +30,7 @@ $product = $products[$_GET['id']];
     </div>
   </div>
 
-  <button class="btn-call" onclick="openModal('<?= htmlspecialchars($product['title'], ENT_QUOTES) ?>')">Заказать</button>
+  <button class="btn-order" onclick="openModal('<?= htmlspecialchars($product['title'], ENT_QUOTES) ?>')">Заказать</button>
 
   <?php include 'modal_form.php'; ?>
 
