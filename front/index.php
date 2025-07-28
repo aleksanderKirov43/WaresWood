@@ -152,7 +152,7 @@ include 'products.php';
   <hr id ="catalog" class="divider">
 
 <section class="products container">
-  <h1>Каталог товаров</h1>
+  <h1>Каталог</h1>
   <div>
     <?php foreach ($products as $id => $product): ?>
       <div style="border:1px solid #ccc; padding:10px; margin-bottom:10px;">
