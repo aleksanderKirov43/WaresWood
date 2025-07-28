@@ -16,6 +16,10 @@ $product = $products[$_GET['id']];
   <style>
     .thumbnail { width: 100px; margin: 5px; cursor: pointer; }
     #mainImage { max-width: 400px; display: block; margin-bottom: 15px; }
+    .modal { position:fixed; top:10%; left:50%; transform:translateX(-50%); background:#fff; padding:20px; border:1px solid #ccc; z-index:1000; }
+    .modal-content { position:relative; }
+    .modal-close { position:absolute; top:5px; right:10px; cursor:pointer; font-size:20px; }
+    .btn-order { padding: 10px 20px; background: #333; color: #fff; border: none; cursor: pointer; }
   </style>
 </head>
 <body>
@@ -32,19 +36,27 @@ $product = $products[$_GET['id']];
     </div>
   </div>
 
-  <button onclick="document.getElementById('modalForm').style.display='block'">Заказать</button>
+  <button class="btn-order" onclick="openModal('<?= htmlspecialchars($product['title'], ENT_QUOTES) ?>')">Заказать</button>
 
-  <!-- Модальное окно с формой заказа -->
-  <div id="modalForm" style="display:none; position:fixed; top:10%; left:50%; transform:translateX(-50%); background:#fff; padding:20px; border:1px solid #ccc;">
-    <h2>Форма заказа</h2>
-    <form method="post" action="send_order.php">
-      <input type="hidden" name="product" value="<?= htmlspecialchars($product['title']) ?>">
-      <p><input type="text" name="name" placeholder="Ваше имя" required></p>
-      <p><input type="tel" name="phone" placeholder="Телефон" required></p>
-      <p><textarea name="comment" placeholder="Комментарий"></textarea></p>
-      <p><button type="submit">Отправить</button></p>
-      <p><button type="button" onclick="document.getElementById('modalForm').style.display='none'">Закрыть</button></p>
-    </form>
-  </div>
+  <!-- Модальное окно с формой -->
+<?php include 'modal_form.php'; ?>
+
+  <script>
+    function openModal(productTitle) {
+      document.getElementById('productInput').value = productTitle;
+      document.getElementById('modalForm').style.display = 'block';
+    }
+
+    document.getElementById('modalClose').onclick = function() {
+      document.getElementById('modalForm').style.display = 'none';
+    }
+
+    window.onclick = function(event) {
+      const modal = document.getElementById('modalForm');
+      if (event.target == modal) {
+        modal.style.display = 'none';
+      }
+    }
+  </script>
 </body>
 </html>
