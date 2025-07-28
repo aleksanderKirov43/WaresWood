@@ -13,14 +13,8 @@ $product = $products[$_GET['id']];
 <head>
   <meta charset="UTF-8" />
   <title><?= htmlspecialchars($product['title']) ?></title>
-  <style>
-    .thumbnail { width: 100px; margin: 5px; cursor: pointer; }
-    #mainImage { max-width: 400px; display: block; margin-bottom: 15px; }
-    .modal { position:fixed; top:10%; left:50%; transform:translateX(-50%); background:#fff; padding:20px; border:1px solid #ccc; z-index:1000; }
-    .modal-content { position:relative; }
-    .modal-close { position:absolute; top:5px; right:10px; cursor:pointer; font-size:20px; }
-    .btn-order { padding: 10px 20px; background: #333; color: #fff; border: none; cursor: pointer; }
-  </style>
+  <link rel="stylesheet" href="/front/css/style.css" />
+  <link rel="stylesheet" href="/front/css/product.css" />
 </head>
 <body>
   <h1><?= htmlspecialchars($product['title']) ?></h1>
@@ -38,7 +32,6 @@ $product = $products[$_GET['id']];
 
   <button class="btn-order" onclick="openModal('<?= htmlspecialchars($product['title'], ENT_QUOTES) ?>')">Заказать</button>
 
-  <!-- Модальное окно с формой -->
   <?php include 'modal_form.php'; ?>
 
   <script>
