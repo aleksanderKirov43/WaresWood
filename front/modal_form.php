@@ -7,6 +7,7 @@
       <input type="text" name="name" placeholder="Имя" />
       <input type="tel" name="phone" placeholder="Телефон*" required />
       <textarea name="comment" placeholder="Комментарий"></textarea>
+      <input type="hidden" name="product" id="productInput" />
       <button type="submit" class="btn-order">Отправить</button>
     </form>
   </div>
