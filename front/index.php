@@ -155,7 +155,8 @@ include 'products.php';
   <h1>Каталог</h1>
   <div>
     <?php foreach ($products as $id => $product): ?>
-      <div style="border:1px solid #ccc; padding:10px; margin-bottom:10px;">
+      <article class="product-card">
+      <div class="products-list">
         <h2><?= htmlspecialchars($product['title']) ?></h2>
         <p><?= nl2br(htmlspecialchars($product['description'])) ?></p>
         <p><strong>Цена: <?= htmlspecialchars($product['price']) ?></strong></p>
@@ -164,6 +165,7 @@ include 'products.php';
       </div>
     <?php endforeach; ?>
   </div>
+  </article>
 </section>  
 
 <!-- <section class="products container">
