@@ -12,7 +12,7 @@
   </div>
 </div>
 
-<script>
+<!-- <script>
 window.addEventListener('DOMContentLoaded', () => {
   function openModal(productTitle) {
     document.getElementById('productInput').value = productTitle;
@@ -58,4 +58,4 @@ window.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
-</script>
+</script> -->
