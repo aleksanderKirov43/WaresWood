@@ -39,7 +39,7 @@ $product = $products[$_GET['id']];
   <button class="btn-order" onclick="openModal('<?= htmlspecialchars($product['title'], ENT_QUOTES) ?>')">Заказать</button>
 
   <!-- Модальное окно с формой -->
-<?php include 'modal_form.php'; ?>
+<?php include '/front/modal_form.php'; ?>
 
   <script>
     function openModal(productTitle) {
