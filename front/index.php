@@ -322,5 +322,6 @@ include 'products.php';
   <script src="/front/js/main.js"></script>
   <script src="/front/js/form-handler.js"></script>
   <!-- <script src="/front/js/telegram.js"></script> -->
+
 </body>
 </html>
