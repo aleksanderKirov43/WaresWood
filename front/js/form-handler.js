@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
 
       if (!res.ok) throw new Error(await res.text());
-      alert('✅ Заявка отправлена!');
+     showNotification('✅ Заявка отправлена!');
       form.reset();
       if (form === modalForm) modal.style.display = 'none';
     } catch (err) {

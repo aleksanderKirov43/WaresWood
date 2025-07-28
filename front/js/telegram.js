@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
 
       if (!r.ok) throw new Error(await r.text());
-      alert('✅ Заявка отправлена!');
+      showNotification('✅ Заявка отправлена!');
       form.reset();
       if (form === modalForm) modal.style.display = 'none';
     } catch (err) {
