@@ -2,27 +2,21 @@
 // Массив товаров: ключ — id товара, значения — данные
 $products = [
     'stool1' => [
-        'title' => 'Табурет дубовый',
-        'description' => 'Надёжный табурет из массива дуба. Отлично впишется в любой интерьер.',
-        'images' => ['stool1-1.jpg', 'stool1-2.jpg', 'stool1-3.jpg'],
+        'title' => 'Стеллаж 182х39х32 см',
+        'description' => 'Размеры:<br>Высота: 1820 мм.<br>Ширина: 390 мм.<br>Глубина: 320 мм.',
+        'images' => ['/front/images/product-s1.jpg', '/front/images/product-s1.jpg', '/front/images/product-s1.jpg'],
         'price' => '1500 руб.'
     ],
     'shelf1' => [
         'title' => 'Стеллаж 182х39х32 см',
-        'description' => 'Прочный стеллаж из массива дерева. Высота 182 см, ширина 39 см, глубина 32 см.',
-        'images' => ['shelf1-1.jpg', 'shelf1-2.jpg'],
+        'description' => 'Размеры:<br>Высота: 1820 мм.<br>Ширина: 760 мм.<br>Глубина: 320 мм.',
+        'images' => ['/front/images/product-s2.jpg', '/front/images/product-s2.jpg'],
         'price' => '3500 руб.'
     ],
     'shelf2' => [
-        'title' => 'Стеллаж 182х39х32 см',
-        'description' => 'Прочный стеллаж из массива дерева. Высота 182 см, ширина 39 см, глубина 32 см.',
-        'images' => ['shelf1-1.jpg', 'shelf1-2.jpg'],
-        'price' => '3500 руб.'
-    ],
-    'shelf3' => [
-        'title' => 'Стеллаж 182х39х32 см',
-        'description' => 'Прочный стеллаж из массива дерева. Высота 182 см, ширина 39 см, глубина 32 см.',
-        'images' => ['shelf1-1.jpg', 'shelf1-2.jpg'],
+        'title' => 'Стеллаж 182х113х32 см',
+        'description' => 'Размеры:<br>Высота: 1820 мм.<br>Ширина: 1130 мм.<br>Глубина: 320 мм.',
+        'images' => ['/front/images/product-s3.jpg', '/front/images/product-s3.jpg'],
         'price' => '3500 руб.'
     ],
 ];
