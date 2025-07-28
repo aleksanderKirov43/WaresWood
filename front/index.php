@@ -151,18 +151,22 @@ include 'products.php';
   </div>
   <hr id ="catalog" class="divider">
 
+
+
 <section class="products container">
-  <h1>Каталог</h1>
-  <div class="product-card">
-    
+  <h2 class="products-title">Каталог</h2>
+  <p class="products-subtitle">Цена указана за одно стандартное изделие.</p>
+
+  <div class="products-list">
     <?php foreach ($products as $id => $product): ?>
-      <div class="products-list">
-        <h2><?= htmlspecialchars($product['title']) ?></h2>
+      <article class="product-card">
+        <img src="/front/images/product-s1.jpg" alt="Ячейка К 80" class="product-img" />
+        <h3><?= htmlspecialchars($product['title']) ?></h3>
         <p><?= nl2br(htmlspecialchars($product['description'])) ?></p>
         <p><strong>Цена: <?= htmlspecialchars($product['price']) ?></strong></p>
         <a href="/front/product.php?id=<?= urlencode($id) ?>">Подробнее</a>
         <button class="btn-order">Заказать</button>
-      </div>
+      </article>
     <?php endforeach; ?>
   </div>
 
