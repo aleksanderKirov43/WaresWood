@@ -27,10 +27,10 @@ $product = $products[$_GET['id']];
   <strong>Цена: <?= htmlspecialchars($product['price']) ?></strong>
   <button class="" onclick="openModal('<?= htmlspecialchars($product['title'], ENT_QUOTES) ?>')">Заказать</button>
   </div>
-  
+
   <?php include 'modal_form.php'; ?>
 
-  <script>
+  <!-- <script>
     function openModal(productTitle) {
       document.getElementById('productInput').value = productTitle;
       document.getElementById('modalForm').style.display = 'flex';
@@ -46,7 +46,7 @@ $product = $products[$_GET['id']];
         modal.style.display = 'none';
       }
     }
-  </script>
+  </script> -->
 
   <?php include 'footer.php'; ?>
   <?php include 'modal_form.php'; ?>
