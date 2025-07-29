@@ -1,3 +1,6 @@
+<?php include 'header.php'
+?>
+
 <?php
 include 'products.php';
 
@@ -42,5 +45,9 @@ $product = $products[$_GET['id']];
       }
     }
   </script>
+
+  <?php include 'footer.php'; ?>
+  <?php include 'modal_form.php'; ?>
+
   <script src="/front/js/notifications.js"></script>
   <script src="/front/js/form-handler.js"></script>
