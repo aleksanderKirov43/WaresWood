@@ -673,6 +673,16 @@ a {
   gap: 15px;
 }
 
+.btn-detailed{
+    background-color: #aaaaaa;
+    color: white;
+    font-size: small;
+    margin: 10px 0;
+    padding: 10px;
+    min-width: 100%;
+    border-radius: 8px;
+}
+
 /* ===== АДАПТИВ ===== */
 @media (max-width: 1300px) {
   body{
