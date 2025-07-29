@@ -8,15 +8,16 @@ if (!isset($_GET['id']) || !isset($products[$_GET['id']])) {
 
 $product = $products[$_GET['id']];
 ?>
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
   <title><?= htmlspecialchars($product['title']) ?></title>
   <link rel="stylesheet" href="/front/css/style.css" />
   <link rel="stylesheet" href="/front/css/product.css" />
-</head>
-<body>
+</head> -->
+
+<!-- <body> -->
   <h1><?= htmlspecialchars($product['title']) ?></h1>
   <p><?= nl2br(htmlspecialchars($product['description'])) ?></p>
   <strong>Цена: <?= htmlspecialchars($product['price']) ?></strong>
@@ -53,5 +54,5 @@ $product = $products[$_GET['id']];
   </script>
   <script src="/front/js/notifications.js"></script>
   <script src="/front/js/form-handler.js"></script>
-</body>
-</html>
+<!-- </body> -->
+<!-- </html> -->
