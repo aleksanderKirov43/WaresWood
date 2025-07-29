@@ -1,3 +1,4 @@
+  <script src="/front/js/form-handler.js"></script>
 <?php include 'header.php'
 ?>
 
@@ -11,6 +12,7 @@ if (!isset($_GET['id']) || !isset($products[$_GET['id']])) {
 
 $product = $products[$_GET['id']];
 ?>
+<section>
 <div>
   <h1><?= htmlspecialchars($product['title']) ?></h1>
     <div>
@@ -26,7 +28,8 @@ $product = $products[$_GET['id']];
   <p><?= nl2br(htmlspecialchars($product['description'])) ?></p>
   <strong>Цена: <?= htmlspecialchars($product['price']) ?></strong>
   <button class="" onclick="openModal('<?= htmlspecialchars($product['title'], ENT_QUOTES) ?>')">Заказать</button>
-  </div>
+</div>
+</section>
 
   <?php include 'modal_form.php'; ?>
 
@@ -52,4 +55,3 @@ $product = $products[$_GET['id']];
   <?php include 'modal_form.php'; ?>
 
   <script src="/front/js/notifications.js"></script>
-  <script src="/front/js/form-handler.js"></script>
