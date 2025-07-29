@@ -6,7 +6,6 @@ include 'products.php';
 <?php include 'header.php'
 ?>
 
-
 <main class="utp-block">
 <!-- Слайдер -->
 <section class="section-slider">
@@ -79,19 +78,19 @@ include 'products.php';
   <div class="advantages-list">
     <div class="advantage">
       <img src="/front/images/icon1.png" alt="Доставка" class="adv-icon" />
-      <p>Недорогая доставка — за типовой стеллаж 150х80х30 см доставка 800 руб</p>
+      <p>Доставка — от 800 ₽. Типовой стеллаж 150×80×30 см доставим всего за 800 рублей.</p>
     </div>
     <div class="advantage">
       <img src="/front/images/icon2.png" alt="Сборка" class="adv-icon" />
-      <p>Простая сборка — все крепления и ключики для сборки кладем в комплект, дополнительный инструмент не понадобится</p>
+      <p>В комплекте — всё для сборки. Никаких дополнительных инструментов не нужно.</p>
     </div>
     <div class="advantage">
       <img src="/front/images/icon3.png" alt="Связь" class="adv-icon" />
-      <p>Всегда на связи — если у вас возникнут вопросы по сборке, доставке или иные вопросы, мы на связи 24/7</p>
+      <p>На связис 9:00 до 21:00 — Ответим на вопросы по сборке, доставке и не только.</p>
     </div>
     <div class="advantage">
       <img src="/front/images/icon4.png" alt="Гарантия" class="adv-icon" />
-      <p>Гарантия на стеллажи 12 мес</p>
+      <p>Гарантия 12 мес. Мы уверены в качестве — гарантия на все стеллажи.</p>
     </div>
   </div>
   </section>
@@ -253,8 +252,6 @@ include 'products.php';
 </main>
 
 <?php include 'footer.php'; ?>
-
-<!-- Всплывающая форма -->
 <?php include 'modal_form.php'; ?>
 
   <script src="/front/js/notifications.js"></script>

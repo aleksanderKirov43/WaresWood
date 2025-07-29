@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
   <title>Wares & Wood</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon.png">
 
   <link rel="stylesheet" href="/front/css/style.css"/>
   <link rel="stylesheet" href="/front/css/slider.css"/>
