@@ -11,11 +11,9 @@ if (!isset($_GET['id']) || !isset($products[$_GET['id']])) {
 
 $product = $products[$_GET['id']];
 ?>
+<div>
   <h1><?= htmlspecialchars($product['title']) ?></h1>
-  <p><?= nl2br(htmlspecialchars($product['description'])) ?></p>
-  <strong>Цена: <?= htmlspecialchars($product['price']) ?></strong>
-
-  <div>
+    <div>
     <img id="mainImage" src="/front/images/<?= htmlspecialchars($product['images'][0]) ?>" alt="Главное изображение" />
     <div>
       <?php foreach ($product['images'] as $img): ?>
@@ -23,9 +21,13 @@ $product = $products[$_GET['id']];
       <?php endforeach; ?>
     </div>
   </div>
-
-  <button class="btn-order" onclick="openModal('<?= htmlspecialchars($product['title'], ENT_QUOTES) ?>')">Заказать</button>
-
+  </div>
+  <div>
+  <p><?= nl2br(htmlspecialchars($product['description'])) ?></p>
+  <strong>Цена: <?= htmlspecialchars($product['price']) ?></strong>
+  <button class="" onclick="openModal('<?= htmlspecialchars($product['title'], ENT_QUOTES) ?>')">Заказать</button>
+  </div>
+  
   <?php include 'modal_form.php'; ?>
 
   <script>
