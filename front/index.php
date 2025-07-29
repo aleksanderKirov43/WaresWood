@@ -78,19 +78,19 @@ include 'products.php';
   <div class="advantages-list">
     <div class="advantage">
       <img src="/front/images/icon1.png" alt="Доставка" class="adv-icon" />
-      <p>Доставка — от 800 ₽. Типовой стеллаж 150×80×30 см доставим всего за 800 рублей.</p>
+      <p><strong>Доставка — от 800 ₽.</strong> Типовой стеллаж 150×80×30 см доставим всего за 800 рублей.</p>
     </div>
     <div class="advantage">
       <img src="/front/images/icon2.png" alt="Сборка" class="adv-icon" />
-      <p>В комплекте — всё для сборки. Никаких дополнительных инструментов не нужно.</p>
+      <p><strong>В комплекте — всё для сборки.</strong> Никаких дополнительных инструментов не нужно.</p>
     </div>
     <div class="advantage">
       <img src="/front/images/icon3.png" alt="Связь" class="adv-icon" />
-      <p>На связис 9:00 до 21:00 — Ответим на вопросы по сборке, доставке и не только.</p>
+      <p><strong>На связи c 9:00 до 21:00</strong> — Ответим на вопросы по сборке, доставке и не только.</p>
     </div>
     <div class="advantage">
       <img src="/front/images/icon4.png" alt="Гарантия" class="adv-icon" />
-      <p>Гарантия 12 мес. Мы уверены в качестве — гарантия на все стеллажи.</p>
+      <p><strong>Гарантия 12 мес.</strong> Мы уверены в качестве — гарантия на все стеллажи.</p>
     </div>
   </div>
   </section>
