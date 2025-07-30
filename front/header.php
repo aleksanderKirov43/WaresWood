@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="/front/css/product.css"/>
 </head>
 
-<script src="/front/js/slider.js"></script>
+
 <body>
 
 <header>
