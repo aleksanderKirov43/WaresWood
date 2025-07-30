@@ -29,9 +29,4 @@
   <script>
   window.productImages = <?= json_encode($product['images']) ?>;
   </script>
-  <script src="/front/js/telegram.js"></script> 
-  <script src="/front/js/notifications.js"></script> 
-  <script src="/front/js/form-photo.js"></script> 
-  <script src="/front/js/product-slider.js"></script> 
-  <script src="/front/js/main.js"></script>
-  <script src="/front/js/slider.js"></script>
+

@@ -17,6 +17,21 @@
   <script src="/front/js/product-slider.js"></script> 
   <script src="/front/js/main.js"></script>
   <script src="/front/js/slider.js"></script>
+
+  <script>
+    window.productImageMap = <?= json_encode(array_map(
+      fn($p) => array_map(
+        fn($img) => $img,
+        $p['images']
+      ),
+      $products
+    )) ?>;
+  </script>
+
+  <script>
+    window.productImages = <?= json_encode($product['images']) ?>;
+  </script>
+
 </head>
 
 
