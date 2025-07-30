@@ -1,4 +1,3 @@
-
 <?php include 'header.php';?>
 <?php include 'products.php';
 
@@ -52,7 +51,7 @@ $product = $products[$_GET['id']];
   <?php include 'modal_form.php'; ?>
 
   <script>
-  const images = <?= json_encode($product['images']) ?>;
+  window.productImages = <?= json_encode($product['images']) ?>;
   </script>
 
   <script src="/front/js/form-handler.js"></script>
