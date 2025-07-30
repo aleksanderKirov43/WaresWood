@@ -822,7 +822,7 @@ a {
 
 @media (max-width: 768px) {
   .product-card{
-    max-width: 100%;
+    min-width: 100%;
   }
   .products-list{
     flex-direction: column;

@@ -48,8 +48,6 @@ include 'products.php';
           <div>
             <h1 class="utp-title">Индивидуальное производство по вашим размерам</h1>
             <p>Работаем по эскизам, подбираем материалы и воплощаем в жизнь.</p>
-            <br>
-            <br>
             <div class="slide-buttons">
               <button class="btn"><a href="#catalog">Подробнее</a></button>
               <button class="btn btn-secondary btn-call">Заказать звонок</button>
