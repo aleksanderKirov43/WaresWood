@@ -106,7 +106,7 @@ include 'products.php';
   <div class="products-list">
     <?php foreach ($products as $id => $product): ?>
       <article class="product-card">
-        <img src="</front/images/<?= htmlspecialchars($product['images'][0]) ?>" alt="<?= htmlspecialchars($product['title']) ?>" class="product-img" />
+        <img src="/front/images/<?= htmlspecialchars($product['images'][0]) ?>" alt="<?= htmlspecialchars($product['title']) ?>" class="product-img" />
         <h3><?= htmlspecialchars($product['title']) ?></h3>
         <p><?= nl2br(htmlspecialchars($product['description'])) ?></p>
         <p><strong>Цена: <?= htmlspecialchars($product['price']) ?></strong></p>
