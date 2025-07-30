@@ -29,10 +29,10 @@
     <div class="desktop-bar">
       <nav class="header_nav" id="nav-desktop">
         <ul>
-          <li><a href="#catalog">Каталог</a></li>
-          <li><a href="#map">Где купить</a></li>
-          <li><a href="#delivery">Доставка</a></li>
-          <li><a href="#contact">Контакты</a></li>
+          <li><a href="/front/index.php#catalog">Каталог</a></li>
+          <li><a href="/front/index.php#map">Где купить</a></li>
+          <li><a href="/front/index.php#delivery">Доставка</a></li>
+          <li><a href="/front/index.php#contact">Контакты</a></li>
         </ul>
       </nav>
       <p class="phone" ><a href="tel:+79226677059">+7 (922) 667‑70‑59</a></p>
@@ -51,10 +51,10 @@
     <!-- Мобильное меню -->
     <nav class="header_nav" id="nav-mobile">
       <ul>
-        <li><a href="#catalog">Каталог</a></li>
-        <li><a href="#map">Где купить</a></li>
-        <li><a href="#delivery">Доставка</a></li>
-        <li><a href="#contact">Контакты</a></li>
+        <li><a href="/front/index.php#catalog">Каталог</a></li>
+        <li><a href="/front/index.php#map">Где купить</a></li>
+        <li><a href="/front/index.php#delivery">Доставка</a></li>
+        <li><a href="/front/index.php#contact">Контакты</a></li>
       </ul>
     </nav>
 

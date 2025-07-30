@@ -135,3 +135,25 @@
   border: none;
   cursor: pointer;
 }
+
+@media (max-width: 400px) {
+  .image-modal{
+    padding-top: 50%;
+  }
+  .product-right h1 {
+    font-size: 1.6rem;
+  }
+  .thumbnails {
+    margin-top: 1rem;
+    display: flex;
+    gap: 0;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .product-right p {
+    margin-bottom: 0.4rem;
+  }
+
+
+  
+}
