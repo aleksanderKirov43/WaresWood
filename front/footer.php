@@ -18,12 +18,14 @@
 
 <?php
 $map = [];
-foreach ($products as $catKey => $cat) {
-  $map[$catKey] = $cat['items'];
+foreach ($products as $cat) {
+    foreach ($cat['items'] as $id => $product) {
+        $map[$id] = $product['images'];
+    }
 }
 ?>
 <script>
-  window.productImageMap = <?= json_encode($map) ?>;
+  window.productImageMap = <?= json_encode($map, JSON_UNESCAPED_UNICODE) ?>;
 </script>
 
 
