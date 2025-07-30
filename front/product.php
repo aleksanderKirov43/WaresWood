@@ -53,8 +53,9 @@ if (!$product) {
   </div>
 </div>
 
-  <?php include 'modal_form.php'; ?>
   <?php include 'footer.php'; ?>
+  <?php include 'modal_form.php'; ?>
+
 
 
 
