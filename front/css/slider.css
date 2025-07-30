@@ -197,4 +197,7 @@ body {
         gap: 10px;
         align-content: center;
     }
+    .utp-title {
+      font-size: 1.5rem;
+    }
 }

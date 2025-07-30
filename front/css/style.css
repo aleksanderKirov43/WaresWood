@@ -519,7 +519,7 @@ a {
 }
 
 .delivery-block {
-  flex: 1 1 300px;
+  flex: 1 1 200px;
   background-color: #f9f9f9;
   border-radius: 12px;
   padding: 20px;
@@ -755,7 +755,22 @@ a {
   background: #333;
 }
 
+.responsive-map {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 соотношение */
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+}
 
+.responsive-map iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
 
 /* ===== АДАПТИВ ===== */
 @media (max-width: 1300px) {
@@ -800,7 +815,7 @@ a {
   }
 
   .product-card {
-    max-width: 40%;
+    max-width: 100%;
     margin-bottom: 10px;
   }
 }
@@ -890,6 +905,10 @@ a {
 }
 
 @media (max-width: 400px) {
+
+.btn-detailed{
+min-width: 100%;
+  }
 
 .btn-call{
   margin-top: 10px;

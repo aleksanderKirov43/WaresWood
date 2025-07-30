@@ -62,6 +62,8 @@ include 'products.php';
       </div>
     </div>
   </div>
+
+  
   <div class="slider-controls">
     <button class="slider-btn prev">‹</button>
     <button class="slider-btn next">›</button>
@@ -237,7 +239,7 @@ include 'products.php';
   <div class="delivery-blocks">
     <div class="delivery-block">
       <h4>Склад д.Масюгино</h4>
-      <p>Пн - сб работает по договоренности<br>телефон: <a href="tel:+79226677059">+7 (922) 667‑70‑59</a><br>Воскресенье — выходной.</p>
+      <p>Пн - сб работает по договоренности<br>Телефон: <a href="tel:+79226677059">+7 (922) 667‑70‑59</a><br>Воскресенье — выходной.</p>
       <p>Московская область, д. Масюгино, коттеджный посёлок Высоковские Дачи, 48<br>Уточняйте, как проехать по телефону.</p>
     </div>
 
@@ -251,11 +253,15 @@ include 'products.php';
 
   <p id="contact"><strong>Количество, размер и наличие товара уточняйте:</strong><br>
      Телефон: <a href="tel:+79226677059">+7 (922) 667‑70‑59</a><br>
-     E-mail: <a href="teating@mail.ru">teating@mail.ru</a></p>
+     E-mail: <a href="teating@mail.ru">testing@mail.ru</a></p>
 
-  <div class="delivery-map">
-    <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3Aaf29a614b51fb2d4b02c5b0c90fa2fdcf9ca23f16a7de7f4cc3a43e39e839107&amp;source=constructor" width="1200" height="400" frameborder="0"></iframe>
-  </div>
+<div class="delivery-map responsive-map">
+  <iframe 
+    src="https://yandex.ru/map-widget/v1/?um=constructor%3Aaf29a614b51fb2d4b02c5b0c90fa2fdcf9ca23f16a7de7f4cc3a43e39e839107&amp;source=constructor" 
+    frameborder="0" 
+    allowfullscreen
+  ></iframe>
+</div>
 </section>
 
 </main>
