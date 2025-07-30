@@ -16,17 +16,14 @@
   </div>
 </footer>
 
-  <script>
-    window.productImageMap = <?= json_encode(array_map(
-      fn($p) => array_map(
-        fn($img) => $img,
-        $p['images']
-      ),
-      $products
-    )) ?>;
-  </script>
+<?php
+$map = [];
+foreach ($products as $catKey => $cat) {
+  $map[$catKey] = $cat['items'];
+}
+?>
+<script>
+  window.productImageMap = <?= json_encode($map) ?>;
+</script>
 
-  <script>
-  window.productImages = <?= json_encode($product['images']) ?>;
-  </script>
 

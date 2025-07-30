@@ -53,6 +53,11 @@ if (!$product) {
   </div>
 </div>
 
+
+  <script>
+    window.productImages = <?= json_encode($product['images']) ?>;
+  </script>
+  
   <?php include 'footer.php'; ?>
   <?php include 'modal_form.php'; ?>
 
