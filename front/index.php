@@ -100,32 +100,41 @@ include 'products.php';
   <hr id ="catalog" class="divider">
 
 <section class="products container">
-  <h2 class="products-title">Каталог</h2>
-   <h3 class="products-title">Стеллажи прованс на 6 полок</h3>
+   <h2 class="products-title">Стеллажи прованс на 6 полок</h2>
   <p class="products-subtitle">Цена указана за одно стандартное изделие.</p>
 
   <div class="products-list">
-    <?php foreach ($products as $id => $product): ?>
-    <article class="product-card" data-id="<?= $id ?>">
-      <div class="product-image-wrapper">
-        <img 
-          src="/front/images/<?= htmlspecialchars($product['images'][0]) ?>" 
-          alt="<?= htmlspecialchars($product['title']) ?>" 
-          class="product-img"
-        />
-        <div class="image-dots-overlay">
-          <?php foreach ($product['images'] as $index => $img): ?>
-            <span class="dot <?= $index === 0 ? 'active' : '' ?>" data-index="<?= $index ?>"></span>
-          <?php endforeach; ?>
-        </div>
-      </div>
-      <h4><?= htmlspecialchars($product['title']) ?></h4>
-      <p><?= nl2br(htmlspecialchars($product['description'])) ?></p>
-      <p><strong>Цена: <?= htmlspecialchars($product['price']) ?></strong></p>
-      <a class="btn-detailed" href="/front/product.php?id=<?= urlencode($id) ?>">Подробнее</a>
-      <button class="btn-order">Заказать</button>
-    </article>
-    <?php endforeach; ?>
+<?php foreach ($products as $categoryId => $category): ?>
+  <section class="products container">
+    <h2 class="products-title"><?= htmlspecialchars($category['title']) ?></h2>
+    <p class="products-subtitle">Цена указана за одно стандартное изделие.</p>
+
+    <div class="products-list">
+      <?php foreach ($category['items'] as $id => $product): ?>
+        <article class="product-card" data-id="<?= $id ?>">
+          <div class="product-image-wrapper">
+            <img 
+              src="/front/images/<?= htmlspecialchars($product['images'][0]) ?>" 
+              alt="<?= htmlspecialchars($product['title']) ?>" 
+              class="product-img"
+            />
+            <div class="image-dots-overlay">
+              <?php foreach ($product['images'] as $index => $img): ?>
+                <span class="dot <?= $index === 0 ? 'active' : '' ?>" data-index="<?= $index ?>"></span>
+              <?php endforeach; ?>
+            </div>
+          </div>
+          <h4><?= htmlspecialchars($product['title']) ?></h4>
+          <p><?= nl2br(htmlspecialchars($product['description'])) ?></p>
+          <p><strong>Цена: <?= htmlspecialchars($product['price']) ?></strong></p>
+          <a class="btn-detailed" href="/front/product.php?id=<?= urlencode($id) ?>">Подробнее</a>
+          <button class="btn-order">Заказать</button>
+        </article>
+      <?php endforeach; ?>
+    </div>
+  </section>
+<?php endforeach; ?>
+
   </div>
 
 </section>  

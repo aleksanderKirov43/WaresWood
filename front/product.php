@@ -1,12 +1,20 @@
-<?php include 'header.php';?>
+<?php include 'header.php'; ?>
 <?php include 'products.php';
 
-if (!isset($_GET['id']) || !isset($products[$_GET['id']])) {
+$id = $_GET['id'] ?? '';
+$product = null;
+
+foreach ($products as $category) {
+    if (isset($category['items'][$id])) {
+        $product = $category['items'][$id];
+        break;
+    }
+}
+
+if (!$product) {
     echo "Товар не найден";
     exit;
 }
-
-$product = $products[$_GET['id']];
 ?>
 
 <section class="product-page container">
