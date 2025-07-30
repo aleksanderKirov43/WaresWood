@@ -11,7 +11,7 @@ productCards.forEach(card => {
 
   function showImage(index) {
     currentIndex = index;
-    img.src = images[index];
+    img.src = '/front/images/' + images[index];
     dots.forEach(dot => dot.classList.remove('active'));
     dots[index].classList.add('active');
   }
