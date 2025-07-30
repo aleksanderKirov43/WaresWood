@@ -45,8 +45,6 @@ $product = $products[$_GET['id']];
   </div>
 </div>
 
-
-
   <?php include 'modal_form.php'; ?>
   <?php include 'footer.php'; ?>
 

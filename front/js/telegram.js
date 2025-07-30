@@ -1,20 +1,17 @@
 document.addEventListener('DOMContentLoaded', () => {
-  /* --------- DOM‑ссылки --------- */
   const modal       = document.getElementById('modalForm');
   const modalClose  = document.getElementById('modalClose');
-  const modalForm   = modal.querySelector('form');
+  const modalForm   = modal?.querySelector('form');
   const contactForm = document.getElementById('contactForm');
-  const modalComment= modalForm.querySelector('textarea[name="comment"]');
+  const modalComment= modalForm?.querySelector('textarea[name="comment"]');
 
-  /* --------- Переменная под заголовок --------- */
   let currentTitle = '';
 
-  /* --------- Открытие модалки --------- */
   // 1. Кнопка «Заказать звонок»
   document.querySelectorAll('.btn-call').forEach(btn => {
     btn.addEventListener('click', () => {
       currentTitle = 'Заказ звонка с сайта';
-      modalComment.value = '';                 // комментарий оставляем пустым
+      if (modalComment) modalComment.value = '';
       openModal();
     });
   });
@@ -25,33 +22,40 @@ document.addEventListener('DOMContentLoaded', () => {
       const card = btn.closest('.product-card');
       const name = card?.querySelector('h3')?.textContent.trim() || '';
       currentTitle = `Заказ: ${name}`;
-      modalComment.value = '';                 // или pre-fill, если нужно
+      if (modalComment) modalComment.value = '';
       openModal();
     });
   });
 
-  function openModal() {
-    modal.style.display = 'flex';
-    modalForm.reset();                         // чистим поля имени/телефона
-    modalComment.focus();
+  // 3. Кнопка на отдельной странице товара (product.php)
+  const productTitle = document.querySelector('.product-right h1')?.textContent.trim();
+  const singleProductBtn = document.querySelector('.product-right .btn-call');
+  if (singleProductBtn && productTitle) {
+    singleProductBtn.addEventListener('click', () => {
+      currentTitle = `Заказ: ${productTitle}`;
+      if (modalComment) modalComment.value = '';
+      openModal();
+    });
   }
 
-  /* --------- Закрытие модалки --------- */
-  modalClose.addEventListener('click', () => (modal.style.display = 'none'));
-  modal.addEventListener('click',  e => { if (e.target === modal) modal.style.display = 'none'; });
+  function openModal() {
+    if (!modal || !modalForm) return;
+    modal.style.display = 'flex';
+    modalForm.reset();
+    if (modalComment) modalComment.focus();
+  }
 
-  /* --------- Универсальная отправка --------- */
+  modalClose?.addEventListener('click', () => (modal.style.display = 'none'));
+  modal?.addEventListener('click',  e => { if (e.target === modal) modal.style.display = 'none'; });
+
   async function sendData(form, extraTitle = '') {
     const fd = new FormData(form);
-
     const payload = {
-      title:   extraTitle,                                // заголовок
+      title:   extraTitle,
       name:    fd.get('name')    ?.trim() || '',
       phone:   fd.get('phone')   ?.trim() || '',
       comment: fd.get('comment') ?.trim() || '',
     };
-
-    console.log('📦 Отправка:', payload);
 
     try {
       const r = await fetch('http://a1147424.xsph.ru/send', {
@@ -63,14 +67,20 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!r.ok) throw new Error(await r.text());
       showNotification('✅ Заявка отправлена!');
       form.reset();
-      if (form === modalForm) modal.style.display = 'none';
+      if (form === modalForm && modal) modal.style.display = 'none';
     } catch (err) {
       console.error('Ошибка:', err.message);
       alert('❌ Ошибка при отправке');
     }
   }
 
-  /* --------- Обработчики submit --------- */
-  modalForm.addEventListener('submit',  e => { e.preventDefault(); sendData(modalForm, currentTitle); });
-  contactForm.addEventListener('submit',e => { e.preventDefault(); sendData(contactForm, 'Заявка на звонок'); });
+  modalForm?.addEventListener('submit',  e => {
+    e.preventDefault();
+    sendData(modalForm, currentTitle);
+  });
+
+  contactForm?.addEventListener('submit', e => {
+    e.preventDefault();
+    sendData(contactForm, 'Заявка на звонок');
+  });
 });
