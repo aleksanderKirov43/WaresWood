@@ -15,12 +15,15 @@ $product = $products[$_GET['id']];
 
     <div class="product-left">
       <div class="main-image">
-        <img id="mainImage" src="/front/images/<?= htmlspecialchars($product['images'][0]) ?>" alt="Главное изображение">
+          <img src="/front/images/<?= htmlspecialchars($product['images'][0]) ?>" alt="Главное изображение" onclick="openImageModal(0)">
       </div>
-      <div class="thumbnails">
-        <?php foreach ($product['images'] as $img): ?>
-          <img class="thumbnail" src="/front/images/<?= htmlspecialchars($img) ?>" alt="Доп. изображение" onclick="document.getElementById('mainImage').src=this.src;">
-        <?php endforeach; ?>
+<div class="thumbnails">
+  <?php foreach ($product['images'] as $index => $img): ?>
+    <img class="thumbnail"
+         src="/front/images/<?= htmlspecialchars($img) ?>"
+         alt="Миниатюра <?= $index ?>"
+         onclick="openImageModal(<?= $index ?>)">
+  <?php endforeach; ?>
       </div>
     </div>
 
@@ -33,9 +36,24 @@ $product = $products[$_GET['id']];
   </div>
 </section>
 
+
+<div id="imageModal" class="image-modal">
+  <span class="close-modal" onclick="closeImageModal()">&times;</span>
+  <img id="modalImage" class="modal-content-image" src="" alt="">
+  <div class="modal-controls">
+    <button onclick="prevImage()">‹</button>
+    <button onclick="nextImage()">›</button>
+  </div>
+</div>
+
+
   <?php include 'modal_form.php'; ?>
   <?php include 'footer.php'; ?>
   <?php include 'modal_form.php'; ?>
+
+  <script>
+  const images = <?= json_encode($product['images']) ?>;
+  </script>
 
   <script src="/front/js/form-handler.js"></script>
   <script src="/front/js/notifications.js"></script>
