@@ -1,9 +1,8 @@
+<?php include 'header.php'
+?>
 
 <?php
 include 'products.php';
-?>
-
-<?php include 'header.php'
 ?>
 
 <main class="utp-block">
@@ -125,7 +124,7 @@ include 'products.php';
           <p><?= nl2br(htmlspecialchars($product['description'])) ?></p>
           <p><strong>Цена: <?= htmlspecialchars($product['price']) ?></strong></p>
           <a class="btn-detailed" href="/front/product.php?id=<?= urlencode($id) ?>">Подробнее</a>
-          <button class="btn-call">Заказать</button>
+          <button class=" btn btn-call">Заказать</button>
         </article>
       <?php endforeach; ?>
     </div>

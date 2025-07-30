@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   const modal       = document.getElementById('modalForm');
   const modalClose  = document.getElementById('modalClose');
-  const modalForm   = modal?.querySelector('form');
+  const modalForm   = modal?.querySelector('modalContactForm');
   const contactForm = document.getElementById('contactForm');
   const modalComment= modalForm?.querySelector('textarea[name="comment"]');
 
@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.product-card .btn-order').forEach(btn => {
     btn.addEventListener('click', () => {
       const card = btn.closest('.product-card');
-      const name = card?.querySelector('h3')?.textContent.trim() || '';
+      const name = card?.querySelector('h2, h3, h4, h1')?.textContent.trim() || '';
       currentTitle = `Заказ: ${name}`;
       if (modalComment) modalComment.value = '';
       openModal();
