@@ -30,7 +30,7 @@ $product = $products[$_GET['id']];
       <h1><?= htmlspecialchars($product['title']) ?></h1>
       <p><?= nl2br(htmlspecialchars($product['description'])) ?></p>
       <p class="product-price"><strong>Цена: <?= htmlspecialchars($product['price']) ?></strong></p>
-      <button class="btn-call" onclick="openModal('<?= htmlspecialchars($product['title'], ENT_QUOTES) ?>')">Заказать</button>
+      <button class="btn-order">Заказать</button>
     </div>
   </div>
 </section>
