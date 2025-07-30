@@ -51,7 +51,7 @@ $product = $products[$_GET['id']];
 <script>
   window.productImageMap = <?= json_encode(array_map(
     fn($p) => array_map(
-      fn($img) => "/front/images/" . $img,
+      fn($img) => $img,
       $p['images']
     ),
     $products
