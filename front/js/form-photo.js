@@ -1,30 +1,35 @@
-window.images = window.productImages || [];
-window.currentIndex = 0;
+let currentIndex = 0;
 
-window.openImageModal = function(index) {
+function openImageModal(index) {
+  if (!window.productImages || !window.productImages[index]) return;
+
   currentIndex = index;
   const modal = document.getElementById("imageModal");
   const img = document.getElementById("modalImage");
-  img.src = "/front/images/" + images[index];
+  img.src = "/front/images/" + window.productImages[index];
   modal.style.display = "block";
 }
 
-window.closeImageModal = function() {
+function closeImageModal() {
   document.getElementById("imageModal").style.display = "none";
 }
 
-window.prevImage = function() {
-  currentIndex = (currentIndex - 1 + images.length) % images.length;
-  document.getElementById("modalImage").src = "/front/images/" + images[currentIndex];
+function prevImage() {
+  if (!window.productImages) return;
+
+  currentIndex = (currentIndex - 1 + window.productImages.length) % window.productImages.length;
+  document.getElementById("modalImage").src = "/front/images/" + window.productImages[currentIndex];
 }
 
-window.nextImage = function() {
-  currentIndex = (currentIndex + 1) % images.length;
-  document.getElementById("modalImage").src = "/front/images/" + images[currentIndex];
+function nextImage() {
+  if (!window.productImages) return;
+
+  currentIndex = (currentIndex + 1) % window.productImages.length;
+  document.getElementById("modalImage").src = "/front/images/" + window.productImages[currentIndex];
 }
 
 // Закрытие по клику вне модалки
-window.onclick = function(event) {
+window.onclick = function (event) {
   const modal = document.getElementById("imageModal");
   if (event.target === modal) modal.style.display = "none";
-}
+};

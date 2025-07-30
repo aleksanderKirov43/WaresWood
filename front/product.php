@@ -38,7 +38,12 @@ $product = $products[$_GET['id']];
 
 <div id="imageModal" class="image-modal">
   <span class="close-modal" onclick="closeImageModal()">&times;</span>
-  <img id="modalImage" class="modal-content-image" src="" alt="">
+  <?php foreach ($product['images'] as $index => $img): ?>
+  <img class="thumbnail"
+       src="/front/images/<?= htmlspecialchars($img) ?>"
+       alt="Миниатюра <?= $index ?>"
+       onclick="openImageModal(<?= $index ?>)">
+<?php endforeach; ?>
   <div class="modal-controls">
     <button onclick="prevImage()">‹</button>
     <button onclick="nextImage()">›</button>
