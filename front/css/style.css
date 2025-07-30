@@ -511,9 +511,11 @@ a {
 
 .delivery-blocks {
   display: flex;
-  gap: 40px;
+  gap: 20px;
   flex-wrap: wrap;
   margin: 20px 0;
+  min-width: 100%; 
+  flex-direction: column;
 }
 
 .delivery-block {
