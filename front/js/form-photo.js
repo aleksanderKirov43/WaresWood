@@ -1,36 +1,30 @@
-document.addEventListener('DOMContentLoaded', function () {
-  const images = window.productImages || [];
-  let currentIndex = 0;
+window.images = window.productImages || [];
+window.currentIndex = 0;
 
+window.openImageModal = function(index) {
+  currentIndex = index;
   const modal = document.getElementById("imageModal");
-  const modalImage = document.getElementById("modalImage");
+  const img = document.getElementById("modalImage");
+  img.src = "/front/images/" + images[index];
+  modal.style.display = "block";
+}
 
-  if (!modal || !modalImage) return;
+window.closeImageModal = function() {
+  document.getElementById("imageModal").style.display = "none";
+}
 
-  window.openImageModal = function(index) {
-    currentIndex = index;
-    modalImage.src = "/front/images/" + images[currentIndex];
-    modal.style.display = "block";
-  };
+window.prevImage = function() {
+  currentIndex = (currentIndex - 1 + images.length) % images.length;
+  document.getElementById("modalImage").src = "/front/images/" + images[currentIndex];
+}
 
-  window.closeImageModal = function() {
-    modal.style.display = "none";
-  };
+window.nextImage = function() {
+  currentIndex = (currentIndex + 1) % images.length;
+  document.getElementById("modalImage").src = "/front/images/" + images[currentIndex];
+}
 
-  window.prevImage = function() {
-    currentIndex = (currentIndex - 1 + images.length) % images.length;
-    modalImage.src = "/front/images/" + images[currentIndex];
-  };
-
-  window.nextImage = function() {
-    currentIndex = (currentIndex + 1) % images.length;
-    modalImage.src = "/front/images/" + images[currentIndex];
-  };
-
-  // Закрытие по фону
-  window.addEventListener('click', function(event) {
-    if (event.target === modal) {
-      modal.style.display = "none";
-    }
-  });
-});
+// Закрытие по клику вне модалки
+window.onclick = function(event) {
+  const modal = document.getElementById("imageModal");
+  if (event.target === modal) modal.style.display = "none";
+}
