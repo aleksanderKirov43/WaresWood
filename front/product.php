@@ -38,12 +38,7 @@ $product = $products[$_GET['id']];
 
 <div id="imageModal" class="image-modal">
   <span class="close-modal" onclick="closeImageModal()">&times;</span>
-  <?php foreach ($product['images'] as $index => $img): ?>
-  <img class="thumbnail"
-       src="/front/images/<?= htmlspecialchars($img) ?>"
-       alt="Миниатюра <?= $index ?>"
-       onclick="openImageModal(<?= $index ?>)">
-<?php endforeach; ?>
+  <img id="modalImage" class="modal-content-image" src="" alt="Просмотр изображения">
   <div class="modal-controls">
     <button onclick="prevImage()">‹</button>
     <button onclick="nextImage()">›</button>
@@ -51,9 +46,9 @@ $product = $products[$_GET['id']];
 </div>
 
 
+
   <?php include 'modal_form.php'; ?>
   <?php include 'footer.php'; ?>
-  <?php include 'modal_form.php'; ?>
 
   <script>
   window.productImages = <?= json_encode($product['images']) ?>;
