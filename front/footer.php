@@ -17,6 +17,6 @@
 </footer>
 
 
-  <script src="/front/js/form-handler.js"></script>
+  <script src="/front/js/telegram.js"></script>
   <script src="/front/js/notifications.js"></script>
   <script src="/front/js/form-photo.js"></script>
