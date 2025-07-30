@@ -262,7 +262,7 @@ include 'products.php';
      E-mail: <a href="mailto:916506@mail.ru">916506@mail.ru</a></p>
 
   <div class="delivery-map">
-    <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3Aexample&source=constructor" width="100%" height="400" frameborder="0"></iframe>
+    <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3Aaf29a614b51fb2d4b02c5b0c90fa2fdcf9ca23f16a7de7f4cc3a43e39e839107&amp;source=constructor" width="1200" height="400" frameborder="0"></iframe>
   </div>
 </section>
 
