@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   const modal       = document.getElementById('modalForm');
   const modalClose  = document.getElementById('modalClose');
-  const modalForm   = modal?.querySelector('modalContactForm');
+  const modalForm   = modal?.getElementById('modalContactForm');
   const contactForm = document.getElementById('contactForm');
   const modalComment= modalForm?.querySelector('textarea[name="comment"]');
 
