@@ -232,25 +232,17 @@ include 'products.php';
 
 <section class="delivery-section container">
   <h2  id="delivery" class="products-title">Доставка и самовывоз!</h2>
-  <h3 class="delivery-subtitle">НАШИ СКЛАДЫ:</h3>
+  <h3 class="delivery-subtitle">НАШЕ ПРОИЗВОДСТВО:</h3>
 
   <div class="delivery-blocks">
     <div class="delivery-block">
-      <h4>Склад Красногорск</h4>
-      <p>Пн - сб работает по договоренности<br>телефон: <a href="tel:+79169662735">+7 (916) 966 27 35</a><br>Воскресенье — выходной.</p>
+      <h4>Склад д.Масюгино</h4>
+      <p>Пн - сб работает по договоренности<br>телефон: <a href="tel:+79226677059">+7 (922) 667‑70‑59</a><br>Воскресенье — выходной.</p>
       <p>Московская область, г. Красногорск, ул. Заводская<br>Уточняйте, как проехать по телефону.</p>
     </div>
 
-    <div class="delivery-block">
-      <h4>Склад Волоколамск</h4>
-      <p>Московская область, г. Волоколамск, ул. Пушкарская Слобода, д.47<br>
-         Пн - пт: с 09:00 до 17:00<br>
-         Суббота, воскресенье — выходной.</p>
-    </div>
-  </div>
-
   <h3 class="delivery-subtitle">ДОСТАВКА ПО МОСКВЕ И МОСКОВСКОЙ ОБЛАСТИ:</h3>
-  <p>Доставка по Москве в пределах МКАД — <strong>от 1 500 руб.</strong><br>
+  <p>Доставка по Москве в пределах МКАД — <strong>от 800 руб.</strong><br>
      Доставка по Московской области — <strong>стоимость рассчитывается индивидуально.</strong></p>
 
   <h3 id="map" class="delivery-subtitle">ДОСТАВКА В РЕГИОНЫ:</h3>
@@ -258,8 +250,8 @@ include 'products.php';
      Доставка в регионы: <strong>1–7 дней</strong>, стоимость рассчитывается индивидуально.</p>
 
   <p id="contact"><strong>Количество, размер и наличие товара уточняйте:</strong><br>
-     Телефон: <a href="tel:+79169662735">+7 (916) 966 27 35</a><br>
-     E-mail: <a href="mailto:916506@mail.ru">916506@mail.ru</a></p>
+     Телефон: <a href="tel:+79226677059">+7 (922) 667‑70‑59</a><br>
+     E-mail: <a href="teating@mail.ru">teating@mail.ru</a></p>
 
   <div class="delivery-map">
     <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3Aaf29a614b51fb2d4b02c5b0c90fa2fdcf9ca23f16a7de7f4cc3a43e39e839107&amp;source=constructor" width="1200" height="400" frameborder="0"></iframe>
