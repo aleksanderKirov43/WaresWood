@@ -10,6 +10,13 @@
   <link rel="stylesheet" href="/front/css/style.css"/>
   <link rel="stylesheet" href="/front/css/slider.css"/>
   <link rel="stylesheet" href="/front/css/product.css"/>
+
+  <script src="/front/js/telegram.js"></script> 
+  <script src="/front/js/notifications.js"></script> 
+  <script src="/front/js/form-photo.js"></script> 
+  <script src="/front/js/product-slider.js"></script> 
+  <script src="/front/js/main.js"></script>
+  <script src="/front/js/slider.js"></script>
 </head>
 
 
