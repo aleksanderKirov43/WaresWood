@@ -9,6 +9,7 @@
 
   <link rel="stylesheet" href="/front/css/style.css"/>
   <link rel="stylesheet" href="/front/css/slider.css"/>
+  <link rel="stylesheet" href="/front/css/product.css"/>
 </head>
 
 <script src="/front/js/slider.js"></script>

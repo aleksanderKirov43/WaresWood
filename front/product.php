@@ -1,6 +1,5 @@
 
 <?php include 'header.php';?>
-
 <?php include 'products.php';
 
 if (!isset($_GET['id']) || !isset($products[$_GET['id']])) {
