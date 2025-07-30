@@ -54,6 +54,3 @@ $product = $products[$_GET['id']];
   window.productImages = <?= json_encode($product['images']) ?>;
   </script>
 
-  <script src="/front/js/form-handler.js"></script>
-  <script src="/front/js/notifications.js"></script>
-  <script src="/front/js/form-photo.js"></script>

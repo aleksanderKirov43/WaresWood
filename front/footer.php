@@ -15,3 +15,8 @@
     <p class="footer-sign">© 2025 mr.Крендель | Freelance Developer </p>
   </div>
 </footer>
+
+
+  <script src="/front/js/form-handler.js"></script>
+  <script src="/front/js/notifications.js"></script>
+  <script src="/front/js/form-photo.js"></script>
