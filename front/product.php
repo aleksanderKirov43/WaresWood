@@ -48,13 +48,5 @@ $product = $products[$_GET['id']];
   <?php include 'modal_form.php'; ?>
   <?php include 'footer.php'; ?>
 
-<script>
-  window.productImageMap = <?= json_encode(array_map(
-    fn($p) => array_map(
-      fn($img) => $img,
-      $p['images']
-    ),
-    $products
-  )) ?>;
-</script>
+
 
