@@ -5,7 +5,7 @@ $products = [
         'title' => 'Стеллаж 182х39х32 см',
         'description' => 'Размеры:
         Высота: 1820 мм. Ширина: 390 мм. Глубина: 320 мм.',
-        'images' => ['product-s1.jpg', 'product-s1.jpg'],
+        'images' => ['product-s1.jpg', 'product-s2.jpg', 'product-s3.jpg'],
         'price' => '1500 руб.'
     ],
     'shelf1' => [
