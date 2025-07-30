@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     try {
-      const r = await fetch('http://a1147424.xsph.ru/send', {
+      const r = await fetch('/send.php', {
         method : 'POST',
         headers: { 'Content-Type': 'application/json' },
         body   : JSON.stringify(payload),
