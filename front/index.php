@@ -105,25 +105,25 @@ include 'products.php';
 
   <div class="products-list">
     <?php foreach ($products as $id => $product): ?>
-      <article class="product-card" data-id="<?= $id ?>">
-  <div class="product-image-wrapper">
-    <img 
-      src="/front/images/<?= htmlspecialchars($product['images'][0]) ?>" 
-      alt="<?= htmlspecialchars($product['title']) ?>" 
-      class="product-img"
-    />
-    <div class="image-dots">
-      <?php foreach ($product['images'] as $index => $img): ?>
-        <span class="dot <?= $index === 0 ? 'active' : '' ?>" data-index="<?= $index ?>"></span>
-      <?php endforeach; ?>
-    </div>
-  </div>
-  <h3><?= htmlspecialchars($product['title']) ?></h3>
-  <p><?= nl2br(htmlspecialchars($product['description'])) ?></p>
-  <p><strong>Цена: <?= htmlspecialchars($product['price']) ?></strong></p>
-  <a class="btn-detailed" href="/front/product.php?id=<?= urlencode($id) ?>">Подробнее</a>
-  <button class="btn-order">Заказать</button>
-</article>
+    <article class="product-card" data-id="<?= $id ?>">
+      <div class="product-image-wrapper">
+        <img 
+          src="/front/images/<?= htmlspecialchars($product['images'][0]) ?>" 
+          alt="<?= htmlspecialchars($product['title']) ?>" 
+          class="product-img"
+        />
+        <div class="image-dots-overlay">
+          <?php foreach ($product['images'] as $index => $img): ?>
+            <span class="dot <?= $index === 0 ? 'active' : '' ?>" data-index="<?= $index ?>"></span>
+          <?php endforeach; ?>
+        </div>
+      </div>
+      <h3><?= htmlspecialchars($product['title']) ?></h3>
+      <p><?= nl2br(htmlspecialchars($product['description'])) ?></p>
+      <p><strong>Цена: <?= htmlspecialchars($product['price']) ?></strong></p>
+      <a class="btn-detailed" href="/front/product.php?id=<?= urlencode($id) ?>">Подробнее</a>
+      <button class="btn-order">Заказать</button>
+    </article>
     <?php endforeach; ?>
   </div>
 
