@@ -100,9 +100,6 @@ include 'products.php';
   <hr id ="catalog" class="divider">
 
 <section class="products container">
-   <h2 class="products-title">Стеллажи прованс на 6 полок</h2>
-  <p class="products-subtitle">Цена указана за одно стандартное изделие.</p>
-
   <div class="products-list">
 <?php foreach ($products as $categoryId => $category): ?>
   <section class="products container">
@@ -128,7 +125,7 @@ include 'products.php';
           <p><?= nl2br(htmlspecialchars($product['description'])) ?></p>
           <p><strong>Цена: <?= htmlspecialchars($product['price']) ?></strong></p>
           <a class="btn-detailed" href="/front/product.php?id=<?= urlencode($id) ?>">Подробнее</a>
-          <button class="btn-order">Заказать</button>
+          <button class="btn-call">Заказать</button>
         </article>
       <?php endforeach; ?>
     </div>
