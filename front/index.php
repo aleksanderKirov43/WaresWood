@@ -94,7 +94,7 @@ include 'products.php';
   </div>
   </section>
   <div class="button-position">
-  <button class="btn-call">Заказать звонок</button>
+  <button class="btn btn-call">Заказать звонок</button>
   </div>
   <hr id ="catalog" class="divider">
 
