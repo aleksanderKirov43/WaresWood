@@ -101,6 +101,7 @@ include 'products.php';
 
 <section class="products container">
   <h2 class="products-title">Каталог</h2>
+   <h3 class="products-title">Стеллажи прованс на 6 полок</h3>
   <p class="products-subtitle">Цена указана за одно стандартное изделие.</p>
 
   <div class="products-list">
@@ -118,7 +119,7 @@ include 'products.php';
           <?php endforeach; ?>
         </div>
       </div>
-      <h3><?= htmlspecialchars($product['title']) ?></h3>
+      <h4><?= htmlspecialchars($product['title']) ?></h4>
       <p><?= nl2br(htmlspecialchars($product['description'])) ?></p>
       <p><strong>Цена: <?= htmlspecialchars($product['price']) ?></strong></p>
       <a class="btn-detailed" href="/front/product.php?id=<?= urlencode($id) ?>">Подробнее</a>
