@@ -50,23 +50,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
   async function sendData(form, extraTitle = '') {
     const fd = new FormData(form);
-    const payload = {
-      title:   extraTitle,
-      name:    fd.get('name')    ?.trim() || '',
-      phone:   fd.get('phone')   ?.trim() || '',
-      comment: fd.get('comment') ?.trim() || '',
-    };
+    fd.append('title', extraTitle);
 
     try {
       const r = await fetch('/send.php', {
-        method : 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body   : JSON.stringify(payload),
+        method: 'POST',
+        body  : fd
       });
 
       if (!r.ok) throw new Error(await r.text());
       showNotification('✅ Заявка отправлена!');
       form.reset();
+
       if (form === modalForm && modal) modal.style.display = 'none';
     } catch (err) {
       console.error('Ошибка:', err.message);
