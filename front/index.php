@@ -239,8 +239,7 @@ include 'products.php';
   <p>Доставка до транспортной компании — <strong>500 руб.</strong><br>
      Доставка в регионы: <strong>1–7 дней</strong>, стоимость рассчитывается индивидуально.</p>
 
-   <h3 class="delivery-subtitle">ПРИ САМОВЫВОЗЕ:</h3>   
-  <h3 class="delivery-subtitle">НАШ ЦЕХ:</h3>
+  <h3 class="delivery-subtitle">ПРИ САМОВЫВОЗЕ:</h3>   
   <div class="delivery-blocks">
     <div class="delivery-block">
       <h4>Цех д.Масюгино</h4>
