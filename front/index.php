@@ -232,8 +232,14 @@ include 'products.php';
 
 <section class="delivery-section container">
   <h2  id="delivery" class="products-title">Доставка и самовывоз!</h2>
-  <p>Все заказы производятся через интернет магазин*</p>
+ <h3 class="delivery-subtitle">ДОСТАВКА ПО МОСКВЕ И МОСКОВСКОЙ ОБЛАСТИ:</h3>
+  <p>Доставка по Москве и МО — <strong>стоимость рассчитывается индивидуально.</strong><br>
 
+  <h3 id="map" class="delivery-subtitle">ДОСТАВКА В РЕГИОНЫ:</h3>
+  <p>Доставка до транспортной компании — <strong>500 руб.</strong><br>
+     Доставка в регионы: <strong>1–7 дней</strong>, стоимость рассчитывается индивидуально.</p>
+
+   <h3 class="delivery-subtitle">ПРИ САМОВЫВОЗЕ:</h3>   
   <h3 class="delivery-subtitle">НАШ ЦЕХ:</h3>
   <div class="delivery-blocks">
     <div class="delivery-block">
@@ -242,12 +248,7 @@ include 'products.php';
       <p>Московская область, д. Масюгино, коттеджный посёлок Высоковские Дачи, 48<br>Уточняйте, как проехать по телефону.</p>
     </div>
 
-  <h3 class="delivery-subtitle">ДОСТАВКА ПО МОСКВЕ И МОСКОВСКОЙ ОБЛАСТИ:</h3>
-  <p>Доставка по Москве и МО — <strong>стоимость рассчитывается индивидуально.</strong><br>
-
-  <h3 id="map" class="delivery-subtitle">ДОСТАВКА В РЕГИОНЫ:</h3>
-  <p>Доставка до транспортной компании — <strong>500 руб.</strong><br>
-     Доставка в регионы: <strong>1–7 дней</strong>, стоимость рассчитывается индивидуально.</p>
+  
 
   <p id="contact"><strong>Количество, размер и наличие товара уточняйте:</strong><br>
      Телефон: <a href="tel:+79226677059">+7 (922) 667‑70‑59</a><br>
