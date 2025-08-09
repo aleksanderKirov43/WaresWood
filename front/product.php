@@ -47,6 +47,7 @@ if (!$product) {
 <div id="imageModal" class="image-modal">
   <span class="close-modal" onclick="closeImageModal()">&times;</span>
   <img id="modalImage" class="modal-content-image" src="" alt="Просмотр изображения">
+  
   <div class="modal-controls">
     <button onclick="prevImage()">‹</button>
     <button onclick="nextImage()">›</button>
