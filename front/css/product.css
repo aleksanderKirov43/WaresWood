@@ -129,18 +129,17 @@
   padding: 0 20px;
 }
 
-.modal-controls button {
-  background: rgba(0,0,0,0.5);
-  border: none;
-  color: white;
-  font-size: 2rem;
-  padding: 10px 15px;
-  cursor: pointer;
-  border-radius: 4px;
+.modal-arrow:hover {
+  color: #aaa;
 }
 
-.modal-controls button:hover {
-  background: rgba(0,0,0,0.8);
+.modal-arrow {
+  color: white;
+  font-size: 4rem;
+  font-weight: bold;
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.2s;
 }
 
 @media (max-width: 400px) {
