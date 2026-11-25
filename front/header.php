@@ -7,16 +7,30 @@
   <title>Wares & Wood</title>
   <link rel="icon" type="image/png" sizes="32x32" href="/front/images/favicon.png">
 
-  <link rel="stylesheet" href="/front/css/style.css"/>
-  <link rel="stylesheet" href="/front/css/slider.css"/>
-  <link rel="stylesheet" href="/front/css/product.css"/>
+<?php
+/**
+ * Версия статики по времени изменения файла — сбрасывает кэш браузера
+ * после деплоя. Без этого старый product-slider.js продолжает клеить
+ * префикс /front/images/ к уже полным путям из /uploads/products/.
+ */
+$wwAsset = static function (string $relativePath): string {
+    $absolute = __DIR__ . '/' . ltrim($relativePath, '/');
+    $version = is_file($absolute) ? (string) filemtime($absolute) : (string) time();
 
-  <script src="/front/js/telegram.js"></script> 
-  <script src="/front/js/notifications.js"></script> 
-  <script src="/front/js/form-photo.js"></script> 
-  <script src="/front/js/product-slider.js"></script> 
-  <script src="/front/js/main.js"></script>
-  <script src="/front/js/slider.js"></script>
+    return '/front/' . ltrim($relativePath, '/') . '?v=' . $version;
+};
+?>
+
+  <link rel="stylesheet" href="<?= htmlspecialchars($wwAsset('css/style.css')) ?>"/>
+  <link rel="stylesheet" href="<?= htmlspecialchars($wwAsset('css/slider.css')) ?>"/>
+  <link rel="stylesheet" href="<?= htmlspecialchars($wwAsset('css/product.css')) ?>"/>
+
+  <script src="<?= htmlspecialchars($wwAsset('js/telegram.js')) ?>" defer></script>
+  <script src="<?= htmlspecialchars($wwAsset('js/notifications.js')) ?>" defer></script>
+  <script src="<?= htmlspecialchars($wwAsset('js/form-photo.js')) ?>" defer></script>
+  <script src="<?= htmlspecialchars($wwAsset('js/product-slider.js')) ?>" defer></script>
+  <script src="<?= htmlspecialchars($wwAsset('js/main.js')) ?>" defer></script>
+  <script src="<?= htmlspecialchars($wwAsset('js/slider.js')) ?>" defer></script>
 
 </head>
 

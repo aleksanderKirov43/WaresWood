@@ -1,50 +1,78 @@
 document.addEventListener('DOMContentLoaded', () => {
-const productCards = document.querySelectorAll('.product-card');
-const imageMap = window.productImageMap || {};
+  const productCards = document.querySelectorAll('.product-card');
 
-productCards.forEach(card => {
-  const img = card.querySelector('.product-img');
-  const dots = card.querySelectorAll('.dot');
-  const id = card.dataset.id;
-  const images = imageMap[id] || [];
+  productCards.forEach(card => {
+    const img = card.querySelector('.product-img');
+    const dots = card.querySelectorAll('.dot');
+    const id = card.dataset.id;
 
-  // Карточка без фотографий не содержит ни изображения, ни точек переключения.
-  if (!img || images.length === 0) return;
+    if (!img || !id || dots.length === 0) {
+      return;
+    }
 
-  let currentIndex = 0;
+    let currentIndex = 0;
 
-  function showImage(index) {
-    currentIndex = index;
-    img.src = images[index];
-    dots.forEach(dot => dot.classList.remove('active'));
-    dots[index].classList.add('active');
-  }
+    function images() {
+      // Карту читаем при каждом переключении: она появляется в конце страницы,
+      // а этот скрипт подключён в <head> и не должен зависеть от порядка загрузки.
+      const map = window.productImageMap || {};
+      return Array.isArray(map[id]) ? map[id] : [];
+    }
 
-  dots.forEach(dot => {
-    dot.addEventListener('click', () => {
-      const index = parseInt(dot.dataset.index, 10);
-      showImage(index);
-    });
-  });
+    function showImage(index) {
+      const list = images();
 
-  let startX = null;
-  img.addEventListener('touchstart', e => {
-    startX = e.touches[0].clientX;
-  });
+      if (!list[index]) {
+        return;
+      }
 
-  img.addEventListener('touchend', e => {
-    if (startX === null) return;
-    const endX = e.changedTouches[0].clientX;
-    const diff = startX - endX;
-    if (Math.abs(diff) > 30) {
-      if (diff > 0 && currentIndex < images.length - 1) {
-        showImage(currentIndex + 1);
-      } else if (diff < 0 && currentIndex > 0) {
-        showImage(currentIndex - 1);
+      currentIndex = index;
+      // Пути уже полные (/uploads/products/...), префикс /front/images/ не нужен.
+      img.src = list[index];
+      dots.forEach(dot => dot.classList.remove('active'));
+
+      if (dots[index]) {
+        dots[index].classList.add('active');
       }
     }
-    startX = null;
-  });
-});
 
+    dots.forEach(dot => {
+      dot.addEventListener('click', event => {
+        event.preventDefault();
+        event.stopPropagation();
+
+        const index = parseInt(dot.dataset.index, 10);
+
+        if (!Number.isNaN(index)) {
+          showImage(index);
+        }
+      });
+    });
+
+    let startX = null;
+
+    img.addEventListener('touchstart', e => {
+      startX = e.touches[0].clientX;
+    }, { passive: true });
+
+    img.addEventListener('touchend', e => {
+      if (startX === null) {
+        return;
+      }
+
+      const list = images();
+      const endX = e.changedTouches[0].clientX;
+      const diff = startX - endX;
+
+      if (Math.abs(diff) > 30) {
+        if (diff > 0 && currentIndex < list.length - 1) {
+          showImage(currentIndex + 1);
+        } else if (diff < 0 && currentIndex > 0) {
+          showImage(currentIndex - 1);
+        }
+      }
+
+      startX = null;
+    }, { passive: true });
+  });
 });
