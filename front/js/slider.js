@@ -14,6 +14,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let currentSlide = 0;
   const totalSlides = slides.length;
+  const AUTO_INTERVAL_MS = 4000;
+  let autoTimer = null;
 
   function updateSlider() {
     // translateX в процентах считается от ширины самого track, а не контейнера.
@@ -36,11 +38,32 @@ document.addEventListener('DOMContentLoaded', () => {
     updateSlider();
   }
 
-  prevBtn?.addEventListener('click', () => goToSlide(currentSlide - 1));
-  nextBtn?.addEventListener('click', () => goToSlide(currentSlide + 1));
+  function stopAutoplay() {
+    if (autoTimer !== null) {
+      clearInterval(autoTimer);
+      autoTimer = null;
+    }
+  }
+
+  function startAutoplay() {
+    stopAutoplay();
+    autoTimer = setInterval(() => {
+      goToSlide(currentSlide + 1);
+    }, AUTO_INTERVAL_MS);
+  }
+
+  // После ручного переключения таймер начинаем заново,
+  // чтобы слайд не уехал сразу после клика.
+  function goToSlideAndRestart(n) {
+    goToSlide(n);
+    startAutoplay();
+  }
+
+  prevBtn?.addEventListener('click', () => goToSlideAndRestart(currentSlide - 1));
+  nextBtn?.addEventListener('click', () => goToSlideAndRestart(currentSlide + 1));
 
   dots.forEach((dot, i) => {
-    dot.addEventListener('click', () => goToSlide(i));
+    dot.addEventListener('click', () => goToSlideAndRestart(i));
   });
 
   let startX = 0;
@@ -61,13 +84,23 @@ document.addEventListener('DOMContentLoaded', () => {
     const diff = startX - endX;
 
     if (diff > 50) {
-      goToSlide(currentSlide + 1);
+      goToSlideAndRestart(currentSlide + 1);
     } else if (diff < -50) {
-      goToSlide(currentSlide - 1);
+      goToSlideAndRestart(currentSlide - 1);
     }
   }, { passive: true });
 
   window.addEventListener('resize', updateSlider);
 
+  // Пауза, пока вкладка неактивна — не крутим зря в фоне.
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+      stopAutoplay();
+    } else {
+      startAutoplay();
+    }
+  });
+
   updateSlider();
+  startAutoplay();
 });
