@@ -12,7 +12,7 @@
   </div>
 
   <div class="footer-sign-wrap">
-    <p class="footer-sign">© 2025 mr.Крендель | Freelance Developer </p>
+    <p class="footer-sign">© 2025 mr.FD | Freelance Developer </p>
   </div>
 </footer>
 
