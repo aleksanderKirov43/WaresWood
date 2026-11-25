@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let currentSlide = 0;
   const totalSlides = slides.length;
-  const AUTO_INTERVAL_MS = 4000;
+  const AUTO_INTERVAL_MS = 6000;
   let autoTimer = null;
 
   function updateSlider() {

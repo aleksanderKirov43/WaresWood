@@ -17,15 +17,24 @@
 </footer>
 
 <?php
+// $products задаётся в products.php до include; здесь защищаемся,
+// чтобы футер можно было подключать и на страницах без каталога,
+// а Intelephense не ругался на неопределённую переменную.
+$catalogForMap = isset($products) && is_array($products) ? $products : [];
 $map = [];
-foreach ($products as $cat) {
+
+foreach ($catalogForMap as $cat) {
+    if (!is_array($cat) || !isset($cat['items']) || !is_array($cat['items'])) {
+        continue;
+    }
+
     foreach ($cat['items'] as $id => $product) {
-        $map[$id] = $product['images'];
+        $map[$id] = $product['images'] ?? [];
     }
 }
 ?>
 <script>
-  window.productImageMap = <?= json_encode($map, JSON_UNESCAPED_UNICODE) ?>;
+  window.productImageMap = <?= json_encode($map, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) ?>;
 </script>
 
 
