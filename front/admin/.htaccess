@@ -1,0 +1,10 @@
+# Корневой .htaccess задаёт DirectoryIndex front/index.php, и эта директива
+# наследуется вложенными каталогами. Без переопределения запрос /front/admin/
+# искал бы файл /front/admin/front/index.php.
+DirectoryIndex index.php
+
+Options -Indexes
+
+<IfModule mod_headers.c>
+    Header set X-Robots-Tag "noindex, nofollow"
+</IfModule>

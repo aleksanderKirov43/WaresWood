@@ -1,17 +1,21 @@
 document.addEventListener('DOMContentLoaded', () => {
 const productCards = document.querySelectorAll('.product-card');
+const imageMap = window.productImageMap || {};
 
 productCards.forEach(card => {
   const img = card.querySelector('.product-img');
   const dots = card.querySelectorAll('.dot');
   const id = card.dataset.id;
-  const images = window.productImageMap[id] || [];
+  const images = imageMap[id] || [];
+
+  // Карточка без фотографий не содержит ни изображения, ни точек переключения.
+  if (!img || images.length === 0) return;
 
   let currentIndex = 0;
 
   function showImage(index) {
     currentIndex = index;
-    img.src = '/front/images/' + images[index];
+    img.src = images[index];
     dots.forEach(dot => dot.classList.remove('active'));
     dots[index].classList.add('active');
   }
@@ -43,9 +47,4 @@ productCards.forEach(card => {
   });
 });
 
-  // Вспомогательная функция — мапит id к images[]
-  function getImageByIndex(id, index) {
-    if (!window.productImageMap || !window.productImageMap[id]) return '';
-    return window.productImageMap[id][index] || '';
-  }
 });

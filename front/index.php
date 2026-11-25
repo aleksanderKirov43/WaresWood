@@ -98,31 +98,44 @@ include 'products.php';
   </div>
   <hr id ="catalog" class="divider">
 
-<section class="products container">
-  <div class="products-list">
+<?php if ($products === []): ?>
+  <section class="products container">
+    <p class="products-subtitle">Каталог обновляется. Позвоните нам — подберём изделие по вашим размерам.</p>
+  </section>
+<?php endif; ?>
+
 <?php foreach ($products as $categoryId => $category): ?>
   <section class="products container">
     <h2 class="products-title"><?= htmlspecialchars($category['title']) ?></h2>
-    <p class="products-subtitle">Цена указана за одно стандартное изделие.</p>
+    <?php if ($category['subtitle'] !== ''): ?>
+      <p class="products-subtitle"><?= htmlspecialchars($category['subtitle']) ?></p>
+    <?php endif; ?>
 
     <div class="products-list">
       <?php foreach ($category['items'] as $id => $product): ?>
-        <article class="product-card" data-id="<?= $id ?>">
+        <article class="product-card" data-id="<?= htmlspecialchars($id) ?>">
           <div class="product-image-wrapper">
-            <img 
-              src="/front/images/<?= htmlspecialchars($product['images'][0]) ?>" 
-              alt="<?= htmlspecialchars($product['title']) ?>" 
-              class="product-img"
-            />
-            <div class="image-dots-overlay">
-              <?php foreach ($product['images'] as $index => $img): ?>
-                <span class="dot <?= $index === 0 ? 'active' : '' ?>" data-index="<?= $index ?>"></span>
-              <?php endforeach; ?>
-            </div>
+            <?php if ($product['images'] !== []): ?>
+              <img
+                src="<?= htmlspecialchars($product['images'][0]) ?>"
+                alt="<?= htmlspecialchars($product['title']) ?>"
+                class="product-img"
+              />
+              <div class="image-dots-overlay">
+                <?php foreach ($product['images'] as $index => $img): ?>
+                  <span class="dot <?= $index === 0 ? 'active' : '' ?>" data-index="<?= $index ?>"></span>
+                <?php endforeach; ?>
+              </div>
+            <?php endif; ?>
           </div>
           <h4><?= htmlspecialchars($product['title']) ?></h4>
           <p><?= nl2br(htmlspecialchars($product['description'])) ?></p>
-          <p><strong>Цена: <?= htmlspecialchars($product['price']) ?></strong></p>
+          <p>
+            <strong>Цена: <?= htmlspecialchars($product['price']) ?></strong>
+            <?php if ($product['priceUnit'] !== ''): ?>
+              <span class="price-label"><?= htmlspecialchars($product['priceUnit']) ?></span>
+            <?php endif; ?>
+          </p>
           <a class="btn-detailed" href="/front/product.php?id=<?= urlencode($id) ?>">Подробнее</a>
           <button class=" btn btn-call">Заказать</button>
         </article>
@@ -130,10 +143,6 @@ include 'products.php';
     </div>
   </section>
 <?php endforeach; ?>
-
-  </div>
-
-</section>  
 
 <!-- <section class="products container">
   <h2 class="products-title">Стеллажи прованс на 6 полок</h2>

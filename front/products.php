@@ -1,61 +1,62 @@
 <?php
-$products = [
 
-    'shelves' => [
-        'title' => 'Стеллажи прованс на 6 полок',
-        'items' => [
-            'stool1' => [
-                'title' => 'Стеллаж 182х39х32 см',
-                'description' => 'Размеры:
-                Высота: 1820 мм. Ширина: 390 мм. Глубина: 320 мм.',
-                'images' => ['product-s-2.jpg','product-s-2.1.jpg', 'product-s-2.2.jpg', 'product-s-3.3.jpg'],
-                'price' => '1500 руб.'
-            ],
-            'shelf1' => [
-                'title' => 'Стеллаж 182х39х32 см',
-                'description' => 'Размеры:
-                Высота: 1820 мм. Ширина: 760 мм. Глубина: 320 мм.',
-                'images' => ['product-s2.jpg', 'product-s2.jpg'],
-                'price' => '1820 руб.'
-            ],
-            'shelf2' => [
-                'title' => 'Стеллаж 182х113х32 см',
-                'description' => 'Размеры:
-                Высота: 1820 мм. Ширина: 1130 мм. Глубина: 320 мм.',
-                'images' => ['product-s3.jpg', 'product-s3.jpg'],
-                'price' => '3500 руб.'
-            ],
-        ]
-    ],
+declare(strict_types=1);
 
-    'lattices' => [
-        'title' => 'Решётки с запилом из сосны для беседок и ограждений. Двойная ячейка',
-        'items' => [
-            'lattice1' => [
-                'title' => 'Ячейка К 30х90',
-                'description' => 'Решетка с запилом
-                брусок 20х30 мм.
-                без обвязки',
-                'images' => ['product-k30x90.jpg'],
-                'price' => '1600 руб.'
-            ],
-            'lattice2' => [
-                'title' => 'Ячейка К 30х120',
-                'description' => 'Решетка с запилом
-                брусок 20х30 мм.
-                без обвязки',
-                'images' => ['product-k30x120.jpg'],
-                'price' => '1550 руб.'
-            ],
-            'lattice3' => [
-                'title' => 'Ячейка К 30х150',
-                'description' => 'Решетка с запилом
-                брусок 20х30 мм.
-                без обвязки',
-                'images' => ['product-k30x150.jpg'],
-                'price' => '1500 руб.'
-            ],
-        ]
-    ]
+/**
+ * Слой совместимости между хранилищем каталога и публичными страницами.
+ *
+ * Страницы index.php, product.php и footer.php исторически работают с массивом
+ * $products, поэтому модель каталога разворачивается здесь в привычную структуру.
+ * Сам каталог живёт в data/products.json — вне front/ и deploy/, которые
+ * перезаливаются FTP-деплоем при каждом push в main.
+ *
+ * @var array<string, array{
+ *     title: string,
+ *     subtitle: string,
+ *     items: array<string, array{
+ *         title: string,
+ *         description: string,
+ *         images: list<string>,
+ *         price: string,
+ *         priceUnit: string
+ *     }>
+ * }> $products
+ */
 
-];
+require_once __DIR__ . '/src/autoload.php';
+
+$products = [];
+
+try {
+    $wwContainer = new WaresWood\App\Container(dirname(__DIR__));
+    $wwPriceFormatter = $wwContainer->priceFormatter();
+
+    foreach ($wwContainer->catalogService()->getCatalog()->categories as $wwCategory) {
+        $wwItems = [];
+
+        foreach ($wwCategory->products as $wwProduct) {
+            $wwItems[$wwProduct->id] = [
+                'title' => $wwProduct->title,
+                'description' => $wwProduct->description,
+                'images' => $wwProduct->images,
+                'price' => $wwPriceFormatter->format($wwProduct->price),
+                'priceUnit' => $wwProduct->priceUnit,
+            ];
+        }
+
+        $products[$wwCategory->id] = [
+            'title' => $wwCategory->title,
+            'subtitle' => $wwCategory->subtitle,
+            'items' => $wwItems,
+        ];
+    }
+
+    unset($wwContainer, $wwPriceFormatter, $wwCategory, $wwProduct, $wwItems);
+} catch (Throwable $wwException) {
+    // Проблема с хранилищем не должна ронять витрину: показываем пустой каталог.
+    error_log('WaresWood: не удалось загрузить каталог — ' . $wwException->getMessage());
+
+    $products = [];
+
+    unset($wwException);
+}

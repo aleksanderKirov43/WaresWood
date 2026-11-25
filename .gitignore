@@ -1,3 +1,8 @@
 deploy/config.php
 /deploy/getUpdates.php
 /deploy/.htaccess
+
+# Данные каталога и загруженные фотографии живут только на сервере: FTP-деплой
+# перезаливает front/ и deploy/, поэтому изменения из админки нельзя хранить в них.
+/data/
+/uploads/
