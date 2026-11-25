@@ -11,7 +11,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 📥 Checkout repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+
+      # Диагностика: отличает недоступный порт от «хостинг придерживает соединение».
+      # Pure-FTPd здоровается строкой 220 сразу после установки TCP-соединения,
+      # поэтому отсутствие баннера означает фильтрацию на стороне хостинга.
+      - name: 🔎 Check FTP reachability
+        continue-on-error: true
+        run: |
+          if timeout 20 bash -c "exec 3<>/dev/tcp/${{ secrets.FTP_HOST }}/21; head -c 120 <&3"; then
+            echo ""
+            echo "Баннер получен — порт доступен, сервер отвечает."
+          else
+            echo "Баннер не получен за 20 с: порт закрыт либо хостинг молча придерживает соединение с этого IP."
+          fi
 
       - name: 📤 Upload front/ to FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
@@ -19,16 +32,18 @@ jobs:
           server: ${{ secrets.FTP_HOST }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
+          port: 21
+          protocol: ftp
           local-dir: front/
           server-dir: domains/a1147424.xsph.ru/public_html/front/
-          dangerously-ignore-sync: true
+          timeout: 120000
 
   backend-deploy:
     name: ⚙️ Deploy Backend (send.php, .htaccess)
     runs-on: ubuntu-latest
     steps:
       - name: 📥 Checkout repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: 📤 Upload deploy/ to FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
@@ -36,6 +51,8 @@ jobs:
           server: ${{ secrets.FTP_HOST }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
+          port: 21
+          protocol: ftp
           local-dir: deploy/
           server-dir: domains/a1147424.xsph.ru/public_html/
-          dangerously-ignore-sync: true
+          timeout: 120000
